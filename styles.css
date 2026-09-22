@@ -662,6 +662,116 @@ input, select { font: inherit; }
 .service-card-soon p { margin-top: 8px; font-size: 0.875rem; color: var(--slate-500); }
 
 /* ==========================================================================
+   Sobre a Máximo
+   ========================================================================== */
+.about-grid {
+  display: grid;
+  gap: 56px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 1024px) { .about-grid { grid-template-columns: 1fr 1fr; } }
+
+.about-visual { position: relative; }
+.about-photo-placeholder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 2rem;
+  border: 1px dashed rgba(44,168,224,0.4);
+  background: linear-gradient(135deg, rgba(18,32,77,0.9), rgba(7,14,36,0.9));
+  box-shadow: 0 40px 80px rgba(0,0,0,0.45);
+}
+.about-photo-icon { width: 64px; height: 64px; color: var(--cyan-light); opacity: 0.8; }
+.about-photo-placeholder p { font-size: 0.875rem; font-weight: 600; color: var(--slate-400); }
+.about-copy .section-lead { max-width: none; }
+.about-cnpj { margin-top: 20px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--slate-500); }
+
+/* ==========================================================================
+   Tipos de caixa
+   ========================================================================== */
+.tank-types-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 20px;
+}
+@media (min-width: 768px) { .tank-types-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .tank-types-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.tank-type-card {
+  height: 100%;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  padding: 28px;
+  transition: all 0.5s;
+}
+.tank-type-card:hover { transform: translateY(-6px); border-color: rgba(44,168,224,0.5); box-shadow: 0 24px 60px rgba(44,168,224,0.15); }
+.tank-type-card h3 { margin-top: 20px; font-size: 1.125rem; font-weight: 700; }
+.tank-type-card p { margin-top: 10px; font-size: 0.875rem; line-height: 1.6; color: var(--slate-400); }
+
+/* ==========================================================================
+   Quando limpar
+   ========================================================================== */
+.when-grid {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 1024px) { .when-grid { grid-template-columns: 1fr 1fr; } }
+
+.when-stat { display: flex; align-items: baseline; gap: 10px; margin-top: 16px; }
+.when-stat-num {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--cyan-light);
+  text-shadow: 0 0 40px rgba(44,168,224,0.4);
+}
+.when-stat-unit {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--slate-400);
+}
+.when-signs {
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  padding: 28px;
+}
+@media (min-width: 640px) { .when-signs { padding: 32px; } }
+.when-signs-title { font-size: 1.125rem; font-weight: 700; color: #fff; }
+.feature-list-col { margin-top: 20px; display: flex; flex-direction: column; gap: 14px; }
+.feature-list-col li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--slate-200); }
+.feature-list-col .icon { color: var(--orange); }
+
+/* ==========================================================================
+   Condomínios e empresas (reuses .quote-panel glow treatment)
+   ========================================================================== */
+.condo-panel-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.condo-panel-inner .section-lead { margin-left: auto; margin-right: auto; }
+.condo-panel-inner .btn { margin-top: 32px; }
+
+/* ==========================================================================
    Differentials
    ========================================================================== */
 .diff-grid {
@@ -883,6 +993,7 @@ input, select { font: inherit; }
 .select-caret { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--slate-400); }
 
 .form-note { margin-top: 16px; text-align: center; font-size: 0.75rem; color: var(--slate-500); }
+.form-note-lgpd { margin-top: 8px; }
 
 /* ==========================================================================
    Footer
@@ -902,6 +1013,9 @@ input, select { font: inherit; }
   transition: all 0.3s;
 }
 .social-btn:hover { border-color: var(--cyan); color: var(--cyan-light); }
+/* Instagram/Facebook have no real profile URL yet — kept visible but inert
+   until the client provides the links (see TODO comments in index.html). */
+.social-btn.is-placeholder { opacity: .5; pointer-events: none; }
 
 .footer-heading { font-family: var(--font-mono); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.28em; color: var(--cyan-light); }
 .footer-links { margin-top: 20px; display: flex; flex-direction: column; gap: 14px; }
@@ -925,11 +1039,11 @@ input, select { font: inherit; }
    ========================================================================== */
 .floating-wa {
   position: fixed;
-  right: 20px; bottom: 20px;
+  right: 20px; bottom: calc(20px + env(safe-area-inset-bottom));
   z-index: 60;
   display: inline-block;
 }
-@media (min-width: 640px) { .floating-wa { right: 28px; bottom: 28px; } }
+@media (min-width: 640px) { .floating-wa { right: 28px; bottom: calc(28px + env(safe-area-inset-bottom)); } }
 .floating-wa-ping {
   position: absolute; inset: 0;
   border-radius: 50%;

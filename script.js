@@ -9,11 +9,16 @@
   }
 
   /* ---------------------------------------------------------------------
-     Populate every default WhatsApp link on the page
+     Populate every WhatsApp link on the page. The href is already correct
+     in the raw HTML (see index.html) — this just keeps it in sync and
+     supports a per-element custom message via data-wa-message (used by
+     the "Sob consulta" service cards and the condomínios/empresas CTA).
+     Re-running this is harmless/idempotent.
      --------------------------------------------------------------------- */
   var defaultHref = waLink();
   document.querySelectorAll(".js-wa-link").forEach(function (el) {
-    el.setAttribute("href", defaultHref);
+    var customMessage = el.getAttribute("data-wa-message");
+    el.setAttribute("href", customMessage ? waLink(customMessage) : defaultHref);
   });
 
   /* ---------------------------------------------------------------------
@@ -67,7 +72,10 @@
     mobileNav.classList.toggle("is-open", open);
     if (iconMenu) iconMenu.hidden = open;
     if (iconClose) iconClose.hidden = !open;
-    if (menuToggle) menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    if (menuToggle) {
+      menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
     updateScrolled();
   }
 
@@ -130,6 +138,35 @@
   }
 
   /* ---------------------------------------------------------------------
+     Phone mask for the quote form: formats as (85) 9XXXX-XXXX while the
+     user types, stripping anything that isn't a digit first.
+     --------------------------------------------------------------------- */
+  var telefoneInput = document.getElementById("telefone");
+  function maskPhone(value) {
+    var v = value.replace(/\D/g, "").slice(0, 11);
+    if (v.length > 7) {
+      return v.replace(/(\d{2})(\d{5})(\d{0,4})/, function (_, ddd, prefix, suffix) {
+        return suffix ? "(" + ddd + ") " + prefix + "-" + suffix : "(" + ddd + ") " + prefix;
+      });
+    }
+    if (v.length > 2) {
+      return v.replace(/(\d{2})(\d{0,5})/, function (_, ddd, prefix) {
+        return prefix ? "(" + ddd + ") " + prefix : "(" + ddd + ") ";
+      });
+    }
+    if (v.length > 0) return "(" + v;
+    return "";
+  }
+  if (telefoneInput) {
+    telefoneInput.addEventListener("input", function () {
+      var cursorFromEnd = telefoneInput.value.length - telefoneInput.selectionStart;
+      telefoneInput.value = maskPhone(telefoneInput.value);
+      var pos = Math.max(0, telefoneInput.value.length - cursorFromEnd);
+      telefoneInput.setSelectionRange(pos, pos);
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      Quote form -> builds the WhatsApp message and opens wa.me
      --------------------------------------------------------------------- */
   var form = document.querySelector(".js-quote-form");
@@ -140,12 +177,14 @@
       var telefone = (form.telefone && form.telefone.value.trim()) || "";
       var endereco = (form.endereco && form.endereco.value.trim()) || "";
       var tipo = (form.tipo && form.tipo.value) || "";
+      var capacidade = (form.capacidade && form.capacidade.value.trim()) || "";
       var msg =
         DEFAULT_MESSAGE +
         "\n\nNome: " + nome +
         "\nTelefone: " + telefone +
         "\nEndereço: " + endereco +
         "\nTipo de imóvel: " + tipo;
+      if (capacidade) msg += "\nQuantidade/capacidade das caixas: " + capacidade;
       window.open(waLink(msg), "_blank", "noopener");
     });
   }
