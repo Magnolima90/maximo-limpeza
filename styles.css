@@ -66,6 +66,9 @@ input, select { font: inherit; }
   margin: 0 auto;
   padding: 0 20px;
 }
+@media (min-width: 640px) {
+  .container { padding: 0 32px; }
+}
 
 .icon { width: 1.15em; height: 1.15em; flex-shrink: 0; }
 .icon-sm { width: 1em; height: 1em; }
@@ -189,6 +192,9 @@ input, select { font: inherit; }
   height: 72px;
   padding: 0 20px;
 }
+@media (min-width: 640px) {
+  .header-inner { padding: 0 32px; }
+}
 .logo { display: flex; align-items: center; gap: 10px; }
 .logo-mark { width: 36px; height: 36px; filter: drop-shadow(0 0 12px rgba(44, 168, 224, 0.55)); }
 .logo-mark-lg { width: 40px; height: 40px; }
@@ -266,7 +272,7 @@ input, select { font: inherit; }
   padding: 14px 16px;
   border-radius: 12px;
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -293,6 +299,7 @@ input, select { font: inherit; }
   position: relative;
   display: flex;
   align-items: center;
+  min-height: 100vh;
   min-height: 100svh;
   overflow: hidden;
   background: var(--navy-deep);
@@ -329,8 +336,11 @@ input, select { font: inherit; }
   position: relative;
   z-index: 2;
   display: grid;
-  gap: 48px;
+  gap: 56px;
   padding: 128px 20px 96px;
+}
+@media (min-width: 640px) {
+  .hero-inner { padding-left: 32px; padding-right: 32px; }
 }
 @media (min-width: 1024px) {
   .hero-inner { grid-template-columns: repeat(12, 1fr); align-items: center; padding-top: 112px; }
@@ -367,13 +377,13 @@ input, select { font: inherit; }
 
 .hero-title {
   font-weight: 900;
-  line-height: 1.08;
+  line-height: 1.06;
   letter-spacing: -0.01em;
-  font-size: 2.4rem;
+  font-size: 2.6rem;
 }
 .hero-title .block { display: block; padding-bottom: 4px; }
-@media (min-width: 640px) { .hero-title { font-size: 3.5rem; } }
-@media (min-width: 1280px) { .hero-title { font-size: 4.2rem; } }
+@media (min-width: 640px) { .hero-title { font-size: 3.75rem; } }
+@media (min-width: 1280px) { .hero-title { font-size: 4.5rem; } }
 
 .hero-text {
   margin-top: 24px;
@@ -453,6 +463,38 @@ input, select { font: inherit; }
   width: 100%;
   height: auto;
 }
+
+/* ==========================================================================
+   Image treatment (color grading + frame accents, matches reference)
+   ========================================================================== */
+.img-grade { filter: saturate(1.18) contrast(1.06) brightness(0.97); }
+.img-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,43,109,0.55) 0%, rgba(44,168,224,0.18) 45%, rgba(108,212,255,0.1) 100%);
+  mix-blend-mode: color;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.frame-offset {
+  position: absolute;
+  inset: 0;
+  transform: translate(14px, 14px);
+  border: 1px solid rgba(44,168,224,0.35);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.hero-visual-frame { position: relative; }
+.glow-cyan { box-shadow: 0 0 80px rgba(44,168,224,0.22), 0 40px 80px rgba(0,0,0,0.5); }
+.corner-accent {
+  position: absolute;
+  width: 36px; height: 36px;
+  border-color: rgba(245,130,31,0.8);
+  pointer-events: none;
+  z-index: 2;
+}
+.corner-accent-tr { top: 18px; right: 18px; border-top: 2px solid; border-right: 2px solid; border-top-right-radius: 16px; }
+.corner-accent-br { bottom: 16px; right: 16px; width: 32px; height: 32px; border-bottom: 2px solid; border-right: 2px solid; border-bottom-right-radius: 16px; }
 
 /* ==========================================================================
    Marquee
@@ -645,11 +687,13 @@ input, select { font: inherit; }
 .diff-num {
   position: absolute; right: -8px; top: -16px;
   font-family: var(--font-display);
-  font-size: 5rem;
+  font-size: 5.5rem;
   font-weight: 900;
   line-height: 1;
   color: rgba(255,255,255,0.05);
+  transition: color 0.5s;
 }
+.diff-card:hover .diff-num { color: rgba(44,168,224,0.1); }
 .diff-card .icon-badge { width: 56px; height: 56px; position: relative; }
 .diff-card .icon-badge .icon { width: 28px; height: 28px; }
 .diff-card h3 { position: relative; margin-top: 56px; font-size: 1.25rem; font-weight: 700; }
@@ -722,6 +766,7 @@ input, select { font: inherit; }
 
 .coverage-visual { position: relative; }
 .coverage-image {
+  position: relative;
   overflow: hidden;
   border-radius: 2rem;
   border: 1px solid rgba(255,255,255,0.15);
@@ -844,6 +889,7 @@ input, select { font: inherit; }
    ========================================================================== */
 .site-footer { border-top: 1px solid rgba(255,255,255,0.1); background: var(--navy-ink); }
 .footer-grid { display: grid; gap: 48px; padding: 64px 20px; }
+@media (min-width: 640px) { .footer-grid { padding-left: 32px; padding-right: 32px; } }
 @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
 .logo-footer { margin-bottom: 0; }
 .footer-tagline { margin-top: 20px; max-width: 20rem; font-size: 0.875rem; line-height: 1.6; color: var(--slate-500); }
@@ -872,7 +918,7 @@ input, select { font: inherit; }
   color: var(--slate-500);
 }
 .footer-bottom p:last-child { color: var(--slate-600); }
-@media (min-width: 640px) { .footer-bottom { flex-direction: row; } }
+@media (min-width: 640px) { .footer-bottom { flex-direction: row; padding-left: 32px; padding-right: 32px; } }
 
 /* ==========================================================================
    Floating WhatsApp
