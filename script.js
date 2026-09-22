@@ -190,6 +190,66 @@
   }
 
   /* ---------------------------------------------------------------------
+     Antes/depois gallery lightbox (vanilla JS, no dependencies). Clicking a
+     gallery-shot opens a fixed overlay with the larger image; closes on the
+     close button, click-outside (backdrop) or Escape.
+     --------------------------------------------------------------------- */
+  var lightbox = document.getElementById("lightbox");
+  var lightboxImg = document.getElementById("lightbox-img");
+  var lightboxCaption = document.getElementById("lightbox-caption");
+  var lightboxCloseBtn = document.getElementById("lightbox-close-btn");
+  var lightboxLastFocused = null;
+
+  function openLightbox(imgSrc, caption) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxLastFocused = document.activeElement;
+    lightboxImg.src = imgSrc;
+    lightboxImg.alt = caption || "";
+    if (lightboxCaption) lightboxCaption.textContent = caption || "";
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+    if (lightboxCloseBtn) lightboxCloseBtn.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightbox || lightbox.hidden) return;
+    lightbox.hidden = true;
+    document.body.style.overflow = "";
+    if (lightboxLastFocused && lightboxLastFocused.focus) lightboxLastFocused.focus();
+  }
+
+  document.querySelectorAll(".js-gallery-item").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var img = btn.querySelector("img");
+      var caption = btn.getAttribute("data-caption") || "";
+      if (img) openLightbox(img.src, caption);
+    });
+  });
+
+  document.querySelectorAll(".js-lightbox-close").forEach(function (el) {
+    el.addEventListener("click", closeLightbox);
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeLightbox();
+  });
+
+  /* ---------------------------------------------------------------------
+     FAQ accordion: native <details>/<summary> already toggles on click;
+     this only adds the "close the others" behavior when one item opens.
+     --------------------------------------------------------------------- */
+  var faqItems = document.querySelectorAll(".faq-item");
+  faqItems.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      if (item.open) {
+        faqItems.forEach(function (other) {
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
+
+  /* ---------------------------------------------------------------------
      Footer year
      --------------------------------------------------------------------- */
   var yearEl = document.querySelector(".js-year");

@@ -1084,9 +1084,212 @@ input, select { font: inherit; }
 .floating-wa:hover .floating-wa-tip { opacity: 1; transform: translateY(-50%) translateX(0); }
 
 /* ==========================================================================
+   Laudo técnico (mock document card — CSS-drawn placeholder, no real content)
+   ========================================================================== */
+.laudo-doc-mock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  aspect-ratio: 4 / 3;
+  padding: 28px;
+  border-radius: 1.5rem;
+  border: 1px dashed rgba(44,168,224,0.4);
+  background: linear-gradient(135deg, rgba(18,32,77,0.9), rgba(7,14,36,0.9));
+  box-shadow: 0 40px 80px rgba(0,0,0,0.45);
+}
+.laudo-doc-header { display: flex; gap: 6px; }
+.laudo-doc-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); }
+.laudo-doc-body { position: relative; display: flex; flex-direction: column; gap: 12px; flex: 1; padding-top: 4px; }
+.laudo-doc-icon { width: 40px; height: 40px; margin-bottom: 4px; color: var(--cyan-light); opacity: 0.9; }
+.laudo-doc-line { display: block; height: 8px; width: 85%; border-radius: 4px; background: rgba(255,255,255,0.12); }
+.laudo-doc-line-title { width: 55%; height: 12px; background: rgba(108,212,255,0.35); }
+.laudo-doc-line-short { width: 40%; }
+.laudo-doc-seal {
+  position: absolute; right: 0; bottom: 0;
+  display: flex; align-items: center; justify-content: center;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 2px solid var(--orange);
+  color: var(--orange);
+  background: rgba(245,130,31,0.1);
+}
+.laudo-doc-seal .icon { width: 26px; height: 26px; }
+.laudo-doc-caption { font-size: 0.8rem; color: var(--slate-400); text-align: center; }
+
+/* ==========================================================================
+   Antes e depois (gallery + lightbox)
+   ========================================================================== */
+.gallery-grid { position: relative; z-index: 1; display: grid; gap: 24px; }
+@media (min-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.gallery-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.gallery-shot {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  padding: 0;
+  color: inherit;
+  transition: all 0.3s;
+}
+.gallery-shot:hover { border-color: rgba(44,168,224,0.5); transform: translateY(-4px); }
+.gallery-shot-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+.gallery-shot-tag {
+  position: absolute; left: 10px; top: 10px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.gallery-shot-tag-before { background: rgba(255,255,255,0.15); color: #fff; }
+.gallery-shot-tag-after { background: var(--orange); color: var(--navy-deep); }
+.gallery-shot-caption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--slate-300);
+  background: linear-gradient(to top, rgba(7,14,36,0.92), transparent);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(5,9,28,0.92);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.lightbox[hidden] { display: none; }
+.lightbox-backdrop { position: absolute; inset: 0; }
+.lightbox-content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  width: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: var(--navy-dark);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+}
+.lightbox-img { width: 100%; display: block; }
+.lightbox-caption { padding: 16px 20px; font-size: 0.9rem; color: var(--slate-300); text-align: center; }
+.lightbox-close {
+  position: absolute; right: 12px; top: 12px; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(7,14,36,0.7);
+  color: #fff;
+}
+.lightbox-close:hover { border-color: var(--cyan); color: var(--cyan-light); }
+
+/* ==========================================================================
+   Depoimentos
+   ========================================================================== */
+.testimonial-grid { position: relative; z-index: 1; display: grid; gap: 24px; }
+@media (min-width: 1024px) { .testimonial-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  padding: 28px;
+}
+.testimonial-quote-icon { width: 32px; height: 32px; color: rgba(44,168,224,0.4); }
+.testimonial-text { font-size: 0.95rem; line-height: 1.7; font-style: italic; color: var(--slate-200); }
+.testimonial-footer { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+.testimonial-avatar {
+  display: flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(44,168,224,0.3);
+  background: linear-gradient(to bottom right, rgba(44,168,224,0.3), rgba(26,43,109,0.6));
+  color: var(--cyan-light);
+}
+.testimonial-avatar .icon { width: 22px; height: 22px; }
+.testimonial-name { display: block; font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: #fff; }
+.testimonial-role { display: block; margin-top: 2px; font-size: 0.75rem; color: var(--slate-500); }
+.testimonial-cta { margin-top: 40px; display: flex; justify-content: center; }
+
+/* ==========================================================================
+   FAQ (native <details>/<summary> accordion)
+   ========================================================================== */
+.faq-list { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; max-width: 48rem; }
+.faq-item {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  padding: 0 24px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.faq-item[open] { border-color: rgba(44,168,224,0.5); background: rgba(255,255,255,0.05); }
+.faq-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  list-style: none;
+  padding: 20px 0;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+}
+.faq-summary::-webkit-details-marker { display: none; }
+.faq-summary::marker { content: ""; }
+.faq-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(44,168,224,0.4);
+  color: var(--cyan-light);
+  transition: transform 0.3s, background 0.3s, color 0.3s;
+}
+.faq-icon::before, .faq-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+}
+.faq-icon::before { width: 12px; height: 2px; }
+.faq-icon::after { width: 2px; height: 12px; }
+.faq-item[open] .faq-icon { background: var(--cyan); color: var(--navy-deep); transform: rotate(45deg); }
+.faq-answer { padding: 0 0 24px; font-size: 0.9rem; line-height: 1.7; color: var(--slate-400); }
+.faq-answer a { color: var(--cyan-light); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.faq-answer a:hover { color: #fff; }
+
+/* ==========================================================================
    Responsive tweaks
    ========================================================================== */
 @media (max-width: 639px) {
   .hero-actions .btn { width: 100%; }
   .hero-visual-caption { padding: 12px 16px; }
+  .gallery-pair { gap: 8px; }
 }
