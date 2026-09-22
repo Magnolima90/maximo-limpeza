@@ -3,529 +3,465 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Máximo Limpeza &amp; Serviço — Limpeza de Caixa D'Água em Fortaleza</title>
-<meta name="description" content="Limpeza de caixa d'água em Fortaleza-CE com compromisso, qualidade e total segurança. Orçamento rápido pelo WhatsApp.">
+<title>Limpeza de Caixa D'água em Fortaleza | Máximo Limpeza &amp; Serviço</title>
+<meta name="description" content="Limpeza de caixa d'água com compromisso, qualidade e total segurança. Fortaleza e Região Metropolitana. Orçamento rápido pelo WhatsApp.">
+<meta name="theme-color" content="#070E24">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%236cd4ff'/%3E%3Cstop offset='55%25' stop-color='%232ca8e0'/%3E%3Cstop offset='100%25' stop-color='%231a2b6d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M20 3C20 3 8 17.5 8 25a12 12 0 0 0 24 0C32 17.5 20 3 20 3Z' fill='url(%23g)'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy: #0d1b4c;
-    --navy-deep: #081233;
-    --cyan: #1eaee0;
-    --cyan-soft: #7fd4f0;
-    --ink: #0a1128;
-    --paper: #f5f9fb;
-    --paper-alt: #eaf4f8;
-    --orange: #f2762e;
-    --line: rgba(13,27,76,0.12);
-    --wa-green: #25D366;
-    --r-top: env(safe-area-inset-top, 0px);
-    --r-bottom: env(safe-area-inset-bottom, 0px);
-    box-sizing: border-box;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --paper: #0b1330;
-      --paper-alt: #0f1a3d;
-      --ink: #e9eef7;
-      --line: rgba(255,255,255,0.12);
-    }
-  }
-  :root[data-theme="dark"]{
-    --paper: #0b1330;
-    --paper-alt: #0f1a3d;
-    --ink: #e9eef7;
-    --line: rgba(255,255,255,0.12);
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth; scroll-padding-top: calc(84px + var(--r-top));}
-  body{
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'Inter', system-ui, sans-serif;
-    line-height: 1.55;
-    padding-top: var(--r-top);
-    padding-bottom: var(--r-bottom);
-    overflow-x: hidden;
-  }
-  h1,h2,h3,.brand{
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
-    color: var(--navy);
-    letter-spacing: -0.01em;
-  }
-  :root[data-theme="dark"] h1, :root[data-theme="dark"] h2, :root[data-theme="dark"] h3, :root[data-theme="dark"] .brand{ color:#fff; }
-  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) h1, :root:not([data-theme="light"]) h2, :root:not([data-theme="light"]) h3, :root:not([data-theme="light"]) .brand{ color:#fff; } }
-
-  a{color:inherit; text-decoration:none;}
-  img,svg{max-width:100%; display:block;}
-  .wrap{max-width: 1120px; margin: 0 auto; padding: 0 28px;}
-  section{position:relative;}
-
-  /* ---------- Header ---------- */
-  header{
-    position: sticky; top:0; z-index: 50;
-    background: rgba(245,249,251,0.88);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-    padding-top: var(--r-top);
-  }
-  :root[data-theme="dark"] header{ background: rgba(11,19,48,0.88); }
-  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) header{ background: rgba(11,19,48,0.88); } }
-  .navbar{
-    display:flex; align-items:center; justify-content:space-between;
-    padding: 14px 28px; max-width:1120px; margin:0 auto;
-  }
-  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:1.25rem;}
-  .brand .drop{
-    width:26px; height:26px; border-radius: 50% 50% 50% 4px; rotate: -45deg;
-    background: linear-gradient(135deg, var(--cyan), var(--navy));
-    flex-shrink:0;
-  }
-  nav.links{display:flex; gap:32px; font-size:0.95rem; font-weight:500;}
-  nav.links a{opacity:0.75; transition: opacity .15s ease;}
-  nav.links a:hover{opacity:1;}
-  .cta-btn{
-    display:inline-flex; align-items:center; gap:8px;
-    background: var(--wa-green); color:#fff; font-weight:600;
-    padding: 11px 20px; border-radius: 999px; font-size:0.92rem;
-    box-shadow: 0 8px 20px -6px rgba(37,211,102,0.55);
-    white-space:nowrap;
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .cta-btn:hover{transform: translateY(-1px); box-shadow: 0 10px 24px -6px rgba(37,211,102,0.65);}
-  .menu-toggle{display:none; background:none; border:none; cursor:pointer; padding:6px;}
-  .menu-toggle svg{width:26px; height:26px; stroke: var(--navy);}
-  :root[data-theme="dark"] .menu-toggle svg{stroke:#fff;}
-
-  /* ---------- Hero ---------- */
-  .hero{
-    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
-    color:#fff; position:relative; overflow:hidden;
-    padding: 88px 0 0;
-  }
-  .hero .wrap{display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center; padding-bottom: 90px;}
-  .eyebrow-tag{
-    display:inline-flex; align-items:center; gap:8px;
-    background: rgba(30,174,224,0.15); border:1px solid rgba(127,212,240,0.35);
-    color: var(--cyan-soft); font-size:0.85rem; font-weight:500;
-    padding:7px 14px; border-radius:999px; margin-bottom:22px;
-  }
-  .eyebrow-tag .dot{width:6px;height:6px;border-radius:50%; background:var(--cyan-soft);}
-  .hero h1{
-    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
-    font-weight:700; color:#fff; line-height:1.12; max-width: 15ch;
-  }
-  .hero h1 .accent{
-    background: linear-gradient(90deg, var(--cyan-soft), var(--cyan));
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  .hero p.lede{
-    margin-top:20px; font-size:1.08rem; color: rgba(255,255,255,0.75);
-    max-width: 46ch;
-  }
-  .hero-ctas{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
-  .btn-primary{
-    background: var(--orange); color:#fff; font-weight:600;
-    padding:14px 26px; border-radius:10px; font-size:0.98rem;
-    box-shadow: 0 12px 26px -8px rgba(242,118,46,0.55);
-  }
-  .btn-ghost{
-    border:1px solid rgba(255,255,255,0.25); color:#fff; font-weight:500;
-    padding:14px 24px; border-radius:10px; font-size:0.98rem;
-  }
-  .hero-stats{display:flex; gap:34px; margin-top:46px; flex-wrap:wrap;}
-  .hero-stats div strong{display:block; font-size:1.7rem; font-family:'Space Grotesk'; color:#fff;}
-  .hero-stats div span{font-size:0.82rem; color:rgba(255,255,255,0.55);}
-
-  .hero-visual{position:relative; height: 380px;}
-  .tank{
-    position:absolute; inset:0; border-radius: 24px;
-    background: radial-gradient(circle at 30% 20%, rgba(127,212,240,0.25), transparent 60%),
-                linear-gradient(160deg, #12275e, #0a1740);
-    border: 1px solid rgba(127,212,240,0.25);
-    overflow:hidden;
-  }
-  .water-fill{
-    position:absolute; left:0; right:0; bottom:0; height:56%;
-    background: linear-gradient(180deg, rgba(30,174,224,0.55), rgba(13,27,76,0.85));
-  }
-  .wave-line{position:absolute; left:-10%; right:-10%; height:60px;}
-  .wave-line svg{width:100%; height:100%;}
-  .float-ball{
-    position:absolute; width:54px; height:54px; border-radius:50%;
-    background: radial-gradient(circle at 35% 30%, #3b5bb0, #16204f);
-    border: 2px solid rgba(127,212,240,0.5);
-    top: 40%; right: 22%;
-    animation: bob 4.5s ease-in-out infinite;
-  }
-  @keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-14px);} }
-  .float-ball::after{
-    content:''; position:absolute; top:100%; left:50%; width:2px; height:60px;
-    background: rgba(127,212,240,0.4); transform: translateX(-50%);
-  }
-  @media (prefers-reduced-motion: reduce){ .float-ball{animation:none;} }
-
-  .hero-divider{
-    position:relative; margin-top:0; line-height:0;
-  }
-  .hero-divider svg{display:block; width:100%; height:auto;}
-
-  /* ---------- Section shared ---------- */
-  .section{padding: 84px 0;}
-  .section-head{max-width: 640px; margin-bottom: 48px;}
-  .kicker{
-    color: var(--cyan); font-weight:600; font-size:0.95rem; margin-bottom:10px; display:block;
-  }
-  .section-head h2{font-size: clamp(1.7rem, 3vw, 2.3rem); line-height:1.2;}
-  .section-head p{margin-top:14px; color: color-mix(in srgb, var(--ink) 65%, transparent); font-size:1.02rem;}
-
-  /* ---------- Services ---------- */
-  .services-grid{
-    display:grid; grid-template-columns: repeat(3, 1fr); gap:22px;
-  }
-  .svc-card{
-    background: #fff; border:1px solid var(--line); border-radius:16px; padding:28px;
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-  :root[data-theme="dark"] .svc-card{ background: var(--paper-alt); }
-  .svc-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px -14px rgba(13,27,76,0.18); }
-  .svc-card.featured{
-    background: linear-gradient(160deg, var(--navy), var(--navy-deep)); color:#fff; border:none;
-    position:relative;
-  }
-  .svc-card.featured h3{color:#fff;}
-  .svc-card.featured p{color: rgba(255,255,255,0.7);}
-  .svc-badge{
-    position:absolute; top:20px; right:20px; background: var(--orange); color:#fff;
-    font-size:0.7rem; font-weight:600; padding:4px 10px; border-radius:999px;
-  }
-  .svc-icon{
-    width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center;
-    background: linear-gradient(135deg, var(--cyan-soft), var(--cyan)); margin-bottom:18px;
-  }
-  .svc-card.featured .svc-icon{ background: rgba(127,212,240,0.18); border:1px solid rgba(127,212,240,0.4); }
-  .svc-icon svg{width:24px; height:24px; stroke:#fff;}
-  .svc-card h3{font-size:1.12rem; margin-bottom:8px;}
-  .svc-card p{font-size:0.92rem; color: color-mix(in srgb, var(--ink) 60%, transparent);}
-
-  /* ---------- Diferenciais ---------- */
-  .diff-band{ background: var(--paper-alt); }
-  .diff-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:0; border:1px solid var(--line); border-radius:18px; overflow:hidden; background:#fff;}
-  :root[data-theme="dark"] .diff-grid{ background: var(--navy-deep); }
-  .diff-item{ padding: 30px 24px; border-right:1px solid var(--line); }
-  .diff-item:last-child{border-right:none;}
-  .diff-item .num{font-family:'Space Grotesk'; color: var(--cyan); font-weight:700; font-size:1.1rem; display:block; margin-bottom:12px;}
-  .diff-item h4{font-size:1.02rem; font-weight:600; margin-bottom:8px; color: var(--navy);}
-  :root[data-theme="dark"] .diff-item h4{color:#fff;}
-  .diff-item p{font-size:0.88rem; color: color-mix(in srgb, var(--ink) 60%, transparent);}
-
-  /* ---------- Como funciona ---------- */
-  .steps{ display:grid; grid-template-columns: repeat(4, 1fr); gap:24px; position:relative; }
-  .steps::before{
-    content:''; position:absolute; top:22px; left:10%; right:10%; height:2px;
-    background: repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 16px);
-    z-index:0;
-  }
-  .step{position:relative; z-index:1;}
-  .step .dotnum{
-    width:44px; height:44px; border-radius:50%; background: var(--navy); color:#fff;
-    display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk'; font-weight:600;
-    margin-bottom:18px; border: 4px solid var(--paper);
-  }
-  .step h4{font-size:1rem; margin-bottom:8px;}
-  .step p{font-size:0.88rem; color: color-mix(in srgb, var(--ink) 60%, transparent);}
-
-  /* ---------- Área de atuação ---------- */
-  .area-band{
-    background: var(--navy); color:#fff; border-radius: 24px; padding: 56px 48px;
-    display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;
-  }
-  .area-band h3{color:#fff; font-size:1.6rem; max-width: 28ch;}
-  .area-band p{color: rgba(255,255,255,0.65); margin-top:10px; max-width:40ch;}
-  .area-chips{display:flex; gap:10px; flex-wrap:wrap; max-width:360px;}
-  .chip{
-    border:1px solid rgba(127,212,240,0.4); color: var(--cyan-soft);
-    padding:8px 14px; border-radius:999px; font-size:0.85rem;
-  }
-
-  /* ---------- CTA final ---------- */
-  .final-cta{
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 60%, #061029 100%);
-    color:#fff; border-radius:28px; padding: 64px 48px; position:relative; overflow:hidden;
-  }
-  .final-cta::after{
-    content:''; position:absolute; width:420px; height:420px; border-radius:50%;
-    background: radial-gradient(circle, rgba(30,174,224,0.25), transparent 70%);
-    top:-160px; right:-120px;
-  }
-  .final-cta h2{color:#fff; font-size:clamp(1.6rem,3vw,2.2rem); max-width:18ch; position:relative;}
-  .final-cta p{color:rgba(255,255,255,0.7); margin-top:14px; max-width:48ch; position:relative;}
-  .contact-row{display:flex; gap:18px; margin-top:36px; flex-wrap:wrap; position:relative;}
-  .contact-card{
-    background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
-    border-radius:14px; padding:18px 22px; display:flex; align-items:center; gap:14px;
-    flex:1; min-width:240px;
-  }
-  .contact-card .ic{
-    width:38px; height:38px; border-radius:10px; background: rgba(127,212,240,0.15);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  }
-  .contact-card .ic svg{width:19px; height:19px; stroke: var(--cyan-soft);}
-  .contact-card .lbl{font-size:0.75rem; color:rgba(255,255,255,0.5); margin-bottom:2px;}
-  .contact-card .val{font-weight:600; font-size:0.95rem;}
-
-  /* ---------- Footer ---------- */
-  footer{ padding: 40px 0; border-top:1px solid var(--line); }
-  .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
-  .foot-row .brand{font-size:1rem;}
-  footer .fine{font-size:0.82rem; color: color-mix(in srgb, var(--ink) 55%, transparent);}
-
-  /* ---------- WhatsApp float ---------- */
-  .wa-float{
-    position:fixed; bottom: calc(24px + var(--r-bottom)); right:24px; z-index:60;
-    width:58px; height:58px; border-radius:50%; background: var(--wa-green);
-    display:flex; align-items:center; justify-content:center;
-    box-shadow: 0 10px 26px -6px rgba(37,211,102,0.6);
-  }
-  .wa-float svg{width:28px; height:28px; fill:#fff;}
-
-  /* ---------- Responsive ---------- */
-  @media (max-width: 900px){
-    nav.links{display:none;}
-    .hero .wrap{grid-template-columns:1fr; padding-bottom:60px;}
-    .hero-visual{height:260px; order:-1;}
-    .services-grid{grid-template-columns: 1fr 1fr;}
-    .diff-grid{grid-template-columns: 1fr 1fr;}
-    .diff-item{border-right:none; border-bottom:1px solid var(--line);}
-    .steps{grid-template-columns:1fr 1fr; row-gap:36px;}
-    .steps::before{display:none;}
-    .area-band{padding:40px 28px;}
-    .final-cta{padding:44px 26px;}
-  }
-  @media (max-width: 560px){
-    .wrap{padding:0 20px;}
-    .services-grid{grid-template-columns: 1fr;}
-    .diff-grid{grid-template-columns: 1fr;}
-    .steps{grid-template-columns:1fr;}
-    .hero-stats{gap:24px;}
-    .cta-btn span.full{display:none;}
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-  <div class="navbar">
-    <div class="brand"><span class="drop"></span>MÁXIMO</div>
-    <nav class="links">
-      <a href="#servicos">Serviços</a>
-      <a href="#diferenciais">Diferenciais</a>
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <a class="cta-btn" href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" target="_blank" rel="noopener">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.86 9.86 0 0 0 4.62 1.15h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2m0 18.06h-.01a8.15 8.15 0 0 1-4.15-1.14l-.3-.18-3.08.79.82-3-.2-.31a8.16 8.16 0 0 1-1.26-4.31c0-4.51 3.67-8.18 8.19-8.18 2.19 0 4.24.85 5.79 2.4a8.13 8.13 0 0 1 2.39 5.79c0 4.51-3.68 8.14-8.19 8.14m4.48-6.13c-.25-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.13-.16.24-.63.79-.77.95-.14.16-.28.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.24-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.32-.75-1.8-.2-.48-.4-.42-.55-.42-.14 0-.31-.01-.47-.01-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.04 0 1.2.88 2.36 1 2.52.12.16 1.73 2.65 4.2 3.71.59.25 1.05.4 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.45-.59 1.66-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28"/></svg>
-      <span class="full">WhatsApp</span>
+<header class="site-header" data-testid="site-header">
+  <div class="header-inner">
+    <a href="#inicio" class="logo" data-testid="logo-link">
+      <svg viewBox="0 0 40 40" class="logo-mark" aria-hidden="true">
+        <defs>
+          <linearGradient id="drop-header" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#6cd4ff"/>
+            <stop offset="55%" stop-color="#2ca8e0"/>
+            <stop offset="100%" stop-color="#1a2b6d"/>
+          </linearGradient>
+        </defs>
+        <path d="M20 3C20 3 8 17.5 8 25a12 12 0 0 0 24 0C32 17.5 20 3 20 3Z" fill="url(#drop-header)"/>
+        <path d="M14.5 24.5a5.5 5.5 0 0 0 4.2 6.6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.85"/>
+      </svg>
+      <span class="logo-text">
+        <span class="logo-name">MÁXIMO</span>
+        <span class="logo-sub">Limpeza &amp; Serviço</span>
+      </span>
     </a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#inicio" data-testid="nav-link-inicio">Início</a>
+      <a href="#servicos" data-testid="nav-link-servicos">Serviços</a>
+      <a href="#sobre" data-testid="nav-link-sobre">Sobre</a>
+      <a href="#contato" data-testid="nav-link-contato">Contato</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#" class="btn btn-orange header-cta js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="header-whatsapp-cta-button">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        <span>Fale no WhatsApp</span>
+      </a>
+      <button type="button" class="menu-toggle js-menu-toggle" aria-label="Abrir menu" data-testid="mobile-menu-button">
+        <svg class="icon icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        <svg class="icon icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" hidden aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
   </div>
+
+  <nav class="mobile-nav" aria-label="Navegação mobile">
+    <a href="#inicio" data-testid="mobile-nav-link-inicio">Início</a>
+    <a href="#servicos" data-testid="mobile-nav-link-servicos">Serviços</a>
+    <a href="#sobre" data-testid="mobile-nav-link-sobre">Sobre</a>
+    <a href="#contato" data-testid="mobile-nav-link-contato">Contato</a>
+    <a href="#" class="btn btn-orange mobile-cta js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="mobile-header-whatsapp-cta-button">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      <span>Fale no WhatsApp</span>
+    </a>
+  </nav>
 </header>
 
-<section class="hero">
-  <div class="wrap">
-    <div>
-      <div class="eyebrow-tag"><span class="dot"></span>Fortaleza e Região Metropolitana</div>
-      <h1>Limpeza de caixa d'água com <span class="accent">compromisso, qualidade e total segurança</span></h1>
-      <p class="lede">A Máximo Limpeza &amp; Serviço higieniza e desinfeta o reservatório da sua casa ou empresa, com técnicos capacitados e laudo técnico ao final do serviço.</p>
-      <div class="hero-ctas">
-        <a class="btn-primary" href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" target="_blank" rel="noopener">Solicitar orçamento</a>
-        <a class="btn-ghost" href="#servicos">Ver serviços</a>
-      </div>
-      <div class="hero-stats">
-        <div><strong>+500</strong><span>Reservatórios higienizados</span></div>
-        <div><strong>100%</strong><span>Equipe treinada e segura</span></div>
-        <div><strong>24h</strong><span>Retorno de orçamento</span></div>
-      </div>
+<main>
+
+  <section id="inicio" class="hero" data-testid="hero-section">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="https://images.pexels.com/photos/247759/pexels-photo-247759.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" alt="">
     </div>
-    <div class="hero-visual">
-      <div class="tank">
-        <div class="water-fill"></div>
-        <div class="wave-line" style="bottom:44%;">
-          <svg viewBox="0 0 600 60" preserveAspectRatio="none"><path d="M0 30 Q 75 5 150 30 T 300 30 T 450 30 T 600 30 V60 H0 Z" fill="rgba(127,212,240,0.35)"/></svg>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-cyan" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-navy" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <div class="badge-pill">
+          <span class="pulse-dot"></span>
+          <span>Especialistas em Fortaleza e RMF</span>
         </div>
-        <div class="float-ball"></div>
+        <h1 class="hero-title">
+          <span class="block">Limpeza de <span class="text-gradient-water">Caixa D'Água</span></span>
+          <span class="block">com compromisso,</span>
+          <span class="block">qualidade e <span class="text-orange">total segurança</span>.</span>
+        </h1>
+        <p class="hero-text">Higienização profissional de caixas d'água com produtos certificados, equipe capacitada e laudo técnico após o serviço — para a água da sua casa ou empresa sempre limpa e segura.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-orange btn-lg js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="hero-whatsapp-quote-button">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            <span>Solicitar Orçamento</span>
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <button type="button" class="btn btn-outline btn-lg js-scroll-to" data-target="#servicos" data-testid="hero-services-scroll-button">Ver serviços</button>
+        </div>
+        <div class="hero-trust">
+          <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Segurança total</span>
+          <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>Produtos certificados</span>
+          <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg>Laudo técnico pós-serviço</span>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="hero-divider">
-    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 40 C 240 90 480 0 720 30 C 960 60 1200 10 1440 40 V90 H0 Z" fill="var(--paper)"/></svg>
-  </div>
-</section>
 
-<section class="section" id="servicos">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">Serviços</span>
-      <h2>Cuidado completo com a água que chega até você</h2>
-      <p>Executamos o processo seguindo as normas sanitárias, do esvaziamento à desinfecção final.</p>
+      <div class="hero-visual">
+        <div class="hero-visual-card">
+          <img src="https://images.pexels.com/photos/45229/drop-of-water-inject-water-drip-45229.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Gota de água cristalina">
+          <div class="hero-visual-shade" aria-hidden="true"></div>
+          <div class="hero-visual-caption">
+            <p class="hero-visual-title">Água limpa do início ao fim</p>
+            <p class="hero-visual-sub">Higienização completa com laudo técnico</p>
+          </div>
+        </div>
+        <div class="floaty float-a">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          <span>Segurança total</span>
+        </div>
+        <div class="floaty float-b">
+          <svg class="icon icon-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg>
+          <span>Laudo técnico incluso</span>
+        </div>
+      </div>
     </div>
-    <div class="services-grid">
-      <div class="svc-card featured">
-        <span class="svc-badge">Principal</span>
-        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s6 7 6 11a6 6 0 1 1-12 0c0-4 6-11 6-11Z"/></svg></div>
-        <h3>Limpeza de caixa d'água</h3>
-        <p>Esvaziamento, raspagem, desinfecção e enxágue completo do reservatório, com descarte correto dos resíduos.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0d1b4c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
-        <h3>Laudo técnico</h3>
-        <p>Emissão de laudo comprovando a execução do serviço, exigido por condomínios e empresas.</p>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#0d1b4c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></div>
-        <h3>Manutenção preventiva</h3>
-        <p>Planos periódicos para manter a qualidade da água ao longo do ano, evitando contaminações.</p>
-      </div>
+
+    <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,64 C240,10 480,10 720,48 C960,86 1200,86 1440,32 L1440,90 L0,90 Z" fill="#f5821f"/>
+    </svg>
+  </section>
+
+  <div class="marquee" data-testid="trust-marquee">
+    <div class="marquee-track">
+      <div class="marquee-row" id="marquee-row-a"></div>
+      <div class="marquee-row" aria-hidden="true" id="marquee-row-b"></div>
     </div>
   </div>
-</section>
 
-<section class="section diff-band" id="diferenciais">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">Por que a Máximo</span>
-      <h2>Segurança do início ao fim do serviço</h2>
-    </div>
-    <div class="diff-grid">
-      <div class="diff-item">
-        <span class="num">01</span>
-        <h4>Segurança total</h4>
-        <p>Equipamentos de proteção e procedimentos seguros em cada etapa.</p>
+  <section id="servicos" class="section" data-testid="services-section">
+    <div class="section-glow glow-right" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-head">
+        <div class="reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Nossos serviços</p>
+          <h2 class="section-title">Especialistas em limpeza de <span class="text-gradient-water">caixa d'água</span></h2>
+        </div>
+        <div class="reveal" style="transition-delay:.09s">
+          <p class="section-lead">Do atendimento ao laudo final, cuidamos de cada etapa para entregar água limpa e segura.</p>
+        </div>
       </div>
-      <div class="diff-item">
-        <span class="num">02</span>
-        <h4>Equipe capacitada</h4>
-        <p>Profissionais treinados para o manuseio correto de reservatórios.</p>
-      </div>
-      <div class="diff-item">
-        <span class="num">03</span>
-        <h4>Produtos certificados</h4>
-        <p>Desinfetantes aprovados para uso em água potável.</p>
-      </div>
-      <div class="diff-item">
-        <span class="num">04</span>
-        <h4>Laudo pós-serviço</h4>
-        <p>Documento de comprovação entregue ao final da limpeza.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="section" id="como-funciona">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">Processo</span>
-      <h2>Como funciona o serviço</h2>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="dotnum">1</div>
-        <h4>Agendamento</h4>
-        <p>Você entra em contato pelo WhatsApp e define a melhor data.</p>
-      </div>
-      <div class="step">
-        <div class="dotnum">2</div>
-        <h4>Vistoria</h4>
-        <p>Avaliamos o reservatório e o acesso para planejar a execução.</p>
-      </div>
-      <div class="step">
-        <div class="dotnum">3</div>
-        <h4>Execução</h4>
-        <p>Limpeza e desinfecção completas, com segurança e agilidade.</p>
-      </div>
-      <div class="step">
-        <div class="dotnum">4</div>
-        <h4>Laudo e entrega</h4>
-        <p>Reservatório reabastecido e laudo técnico entregue a você.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="area-band">
-      <div>
-        <h3>Atendemos Fortaleza e toda a Região Metropolitana</h3>
-        <p>Residências, condomínios, empresas e indústrias.</p>
-      </div>
-      <div class="area-chips">
-        <span class="chip">Fortaleza</span>
-        <span class="chip">Caucaia</span>
-        <span class="chip">Maracanaú</span>
-        <span class="chip">Eusébio</span>
-        <span class="chip">Aquiraz</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="contato">
-  <div class="wrap">
-    <div class="final-cta">
-      <h2>Peça seu orçamento agora mesmo</h2>
-      <p>Resposta rápida pelo WhatsApp, ou fale conosco por telefone e e-mail.</p>
-      <div class="contact-row">
-        <a class="contact-card" href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" target="_blank" rel="noopener">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></div>
-          <div><div class="lbl">WhatsApp</div><div class="val">(85) 98607-5663</div></div>
+      <div class="services-grid">
+        <a href="#" class="service-card service-card-main js-wa-link reveal" target="_blank" rel="noopener noreferrer" data-testid="service-card-main-caixa-dagua">
+          <img src="https://images.pexels.com/photos/45229/drop-of-water-inject-water-drip-45229.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Gota de água pura em macro">
+          <div class="service-card-shade" aria-hidden="true"></div>
+          <div class="service-card-body">
+            <span class="tag-orange">Serviço principal</span>
+            <h3>Limpeza e Higienização de Caixa D'Água</h3>
+            <p>Serviço completo para residências, condomínios e empresas — sem sujeira, sem odor e com segurança comprovada.</p>
+            <ul class="feature-list">
+              <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Vistoria completa antes da limpeza</li>
+              <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Remoção de sedimentos e sujeiras</li>
+              <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Desinfecção com produtos certificados</li>
+              <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Enxágue final e laudo técnico</li>
+            </ul>
+            <span class="link-arrow">Solicitar orçamento <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
         </a>
-        <a class="contact-card" href="tel:+558521806701">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg></div>
-          <div><div class="lbl">Telefone</div><div class="val">(85) 2180-6701</div></div>
-        </a>
-        <a class="contact-card" href="mailto:comercialmaximols@outlook.com">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg></div>
-          <div><div class="lbl">E-mail</div><div class="val" style="font-size:0.85rem;">comercialmaximols@outlook.com</div></div>
-        </a>
+
+        <div class="service-card service-card-soon reveal" data-testid="service-card-em-breve-0">
+          <div class="service-card-top">
+            <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 22 8 12 14 2 8 12 2"/><polyline points="2 14 12 20 22 14"/></svg></span>
+            <span class="pill-outline"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>Em breve</span>
+          </div>
+          <h3>Limpeza de Cisternas e Reservatórios</h3>
+          <p>Novo serviço em preparo pela nossa equipe.</p>
+        </div>
+
+        <div class="service-card service-card-soon reveal" data-testid="service-card-em-breve-1">
+          <div class="service-card-top">
+            <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"/><path d="M19 15l.7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9z"/></svg></span>
+            <span class="pill-outline"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>Em breve</span>
+          </div>
+          <h3>Impermeabilização</h3>
+          <p>Novo serviço em preparo pela nossa equipe.</p>
+        </div>
+
+        <div class="service-card service-card-soon reveal" data-testid="service-card-em-breve-2">
+          <div class="service-card-top">
+            <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></span>
+            <span class="pill-outline"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>Em breve</span>
+          </div>
+          <h3>Hidrojateamento</h3>
+          <p>Novo serviço em preparo pela nossa equipe.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="wrap foot-row">
-    <div class="brand"><span class="drop" style="width:18px;height:18px;"></span>MÁXIMO LIMPEZA &amp; SERVIÇO</div>
-    <p class="fine">© 2026 Máximo Limpeza &amp; Serviço. Todos os direitos reservados.</p>
+  <section id="sobre" class="section section-alt" data-testid="differentials-section">
+    <div class="section-glow glow-left-bottom" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-head-single reveal">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Diferenciais</p>
+        <h2 class="section-title">Por que escolher a <span class="text-orange">Máximo</span>?</h2>
+      </div>
+
+      <div class="diff-grid">
+        <div class="diff-card reveal" data-testid="differential-card-seguranca">
+          <span class="diff-num">01</span>
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+          <h3>Segurança total</h3>
+          <p>Protocolos rígidos em todas as etapas, do acesso à caixa até a entrega final do serviço.</p>
+        </div>
+        <div class="diff-card reveal" data-testid="differential-card-equipe" style="transition-delay:.09s">
+          <span class="diff-num">02</span>
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18v-2a8 8 0 0 1 16 0v2"/><path d="M2 18h20"/><path d="M12 4v6"/></svg></span>
+          <h3>Equipe capacitada</h3>
+          <p>Profissionais treinados para executar a limpeza com técnica, cuidado e responsabilidade.</p>
+        </div>
+        <div class="diff-card reveal" data-testid="differential-card-produtos" style="transition-delay:.18s">
+          <span class="diff-num">03</span>
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6l-6 10a1 1 0 0 0 1 1.5h14a1 1 0 0 0 1-1.5l-6-10V3"/></svg></span>
+          <h3>Produtos certificados</h3>
+          <p>Higienização com produtos de limpeza certificados, seguros para a água de consumo.</p>
+        </div>
+        <div class="diff-card reveal" data-testid="differential-card-laudo" style="transition-delay:.27s">
+          <span class="diff-num">04</span>
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg></span>
+          <h3>Laudo técnico pós-serviço</h3>
+          <p>Ao final, você recebe um laudo técnico que comprova a qualidade da higienização.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="processo" class="section" data-testid="timeline-section">
+    <div class="section-glow glow-top-center" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-head-single reveal">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Como funciona</p>
+        <h2 class="section-title">Do agendamento ao laudo em <span class="text-gradient-water">4 passos</span></h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line-v" aria-hidden="true"></div>
+        <div class="timeline-line-h" aria-hidden="true"></div>
+        <div class="timeline-grid">
+          <div class="timeline-step reveal" data-testid="timeline-step-agendamento">
+            <div class="timeline-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9 16 11 18 15 14"/></svg>
+              <span class="timeline-badge">1</span>
+            </div>
+            <div class="timeline-copy">
+              <h3>Agendamento</h3>
+              <p>Você chama no WhatsApp e escolhe o melhor dia e horário.</p>
+            </div>
+          </div>
+          <div class="timeline-step reveal" data-testid="timeline-step-vistoria" style="transition-delay:.09s">
+            <div class="timeline-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="16" rx="2"/><rect x="9" y="2" width="6" height="4" rx="1"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              <span class="timeline-badge">2</span>
+            </div>
+            <div class="timeline-copy">
+              <h3>Vistoria</h3>
+              <p>Avaliamos a caixa d'água e definimos o procedimento ideal.</p>
+            </div>
+          </div>
+          <div class="timeline-step reveal" data-testid="timeline-step-execucao" style="transition-delay:.18s">
+            <div class="timeline-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"/><path d="M19 15l.7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9z"/></svg>
+              <span class="timeline-badge">3</span>
+            </div>
+            <div class="timeline-copy">
+              <h3>Execução</h3>
+              <p>Limpeza e desinfecção completas com produtos certificados.</p>
+            </div>
+          </div>
+          <div class="timeline-step reveal" data-testid="timeline-step-laudo" style="transition-delay:.27s">
+            <div class="timeline-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg>
+              <span class="timeline-badge">4</span>
+            </div>
+            <div class="timeline-copy">
+              <h3>Laudo / Entrega</h3>
+              <p>Entrega do laudo técnico e de tudo em perfeito funcionamento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="area" class="section section-alt" data-testid="coverage-section">
+    <div class="section-glow glow-right-mid" aria-hidden="true"></div>
+    <div class="container coverage-grid">
+      <div class="coverage-visual reveal">
+        <div class="coverage-image">
+          <img src="https://images.pexels.com/photos/33951034/pexels-photo-33951034.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Orla de Fortaleza, Ceará">
+        </div>
+        <div class="floaty coverage-badge">
+          <span class="coverage-badge-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#070E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span>
+            <span class="coverage-badge-title">Fortaleza • CE</span>
+            <span class="coverage-badge-sub">e Região Metropolitana</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="coverage-copy">
+        <div class="reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Área de atuação</p>
+          <h2 class="section-title">Atendemos <span class="text-gradient-water">Fortaleza</span> e Região Metropolitana</h2>
+          <p class="section-lead">Nossa equipe vai até o seu imóvel — casa, condomínio ou empresa — em toda a capital cearense e nos principais municípios da Grande Fortaleza.</p>
+        </div>
+        <div class="reveal city-chip-row" style="transition-delay:.09s">
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Fortaleza</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Caucaia</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Maracanaú</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Eusébio</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Aquiraz</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Itaitinga</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Pacatuba</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>São Gonçalo do Amarante</span>
+          <span class="city-chip city-chip-muted">+ toda a RMF</span>
+        </div>
+        <div class="reveal" style="transition-delay:.18s">
+          <a href="#" class="btn btn-ghost-cyan js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="coverage-whatsapp-button">
+            <span>Meu bairro está na área? Chame no WhatsApp</span>
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="section" data-testid="quote-section">
+    <div class="container">
+      <div class="quote-panel">
+        <div class="quote-glow quote-glow-a" aria-hidden="true"></div>
+        <div class="quote-glow quote-glow-b" aria-hidden="true"></div>
+        <div class="quote-grid">
+          <div>
+            <div class="reveal">
+              <p class="eyebrow"><span class="eyebrow-dot"></span>Orçamento sem compromisso</p>
+              <h2 class="section-title">Solicite seu orçamento <span class="text-orange">agora</span></h2>
+              <p class="section-lead">Preencha o formulário e continue a conversa direto no nosso WhatsApp — responderemos com sua proposta.</p>
+            </div>
+            <div class="contact-list reveal" style="transition-delay:.09s">
+              <a href="#" class="contact-item js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="quote-whatsapp-link">
+                <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></span>
+                <span class="contact-text"><span class="contact-label">WhatsApp</span><span class="contact-value">(85) 98607-5663</span></span>
+              </a>
+              <a href="tel:+558521806701" class="contact-item" data-testid="quote-phone-link">
+                <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.22a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg></span>
+                <span class="contact-text"><span class="contact-label">Telefone</span><span class="contact-value">(85) 2180-6701</span></span>
+              </a>
+              <a href="mailto:comercialmaximols@outlook.com" class="contact-item" data-testid="quote-email-link">
+                <span class="contact-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 6 12 13 22 6"/></svg></span>
+                <span class="contact-text"><span class="contact-label">E-mail</span><span class="contact-value">comercialmaximols@outlook.com</span></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal" style="transition-delay:.18s">
+            <form class="quote-form js-quote-form" data-testid="quote-form">
+              <div class="form-field">
+                <label for="nome">Nome completo</label>
+                <input id="nome" name="nome" type="text" required placeholder="Seu nome" data-testid="quote-form-name-input">
+              </div>
+              <div class="form-field">
+                <label for="telefone">Telefone / WhatsApp</label>
+                <input id="telefone" name="telefone" type="tel" required placeholder="(85) 90000-0000" data-testid="quote-form-phone-input">
+              </div>
+              <div class="form-field">
+                <label for="endereco">Endereço (bairro / referência)</label>
+                <input id="endereco" name="endereco" type="text" required placeholder="Bairro, cidade e ponto de referência" data-testid="quote-form-address-input">
+              </div>
+              <div class="form-field">
+                <label for="tipo">Tipo de imóvel</label>
+                <div class="select-wrap">
+                  <select id="tipo" name="tipo" data-testid="quote-form-property-type-select">
+                    <option>Residência</option>
+                    <option>Condomínio</option>
+                    <option>Comércio / Empresa</option>
+                    <option>Galpão / Industrial</option>
+                    <option>Outro</option>
+                  </select>
+                  <svg class="icon icon-sm select-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-orange btn-block" data-testid="quote-form-submit-whatsapp-button">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                <span>Solicitar orçamento no WhatsApp</span>
+              </button>
+              <p class="form-note">Ao enviar, o WhatsApp abre com sua mensagem preenchida automaticamente.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" data-testid="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a href="#inicio" class="logo logo-footer">
+        <svg viewBox="0 0 40 40" class="logo-mark logo-mark-lg" aria-hidden="true">
+          <defs>
+            <linearGradient id="drop-footer" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#6cd4ff"/>
+              <stop offset="55%" stop-color="#2ca8e0"/>
+              <stop offset="100%" stop-color="#1a2b6d"/>
+            </linearGradient>
+          </defs>
+          <path d="M20 3C20 3 8 17.5 8 25a12 12 0 0 0 24 0C32 17.5 20 3 20 3Z" fill="url(#drop-footer)"/>
+          <path d="M14.5 24.5a5.5 5.5 0 0 0 4.2 6.6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.85"/>
+        </svg>
+        <span class="logo-text">
+          <span class="logo-name">MÁXIMO</span>
+          <span class="logo-sub">Limpeza &amp; Serviço</span>
+        </span>
+      </a>
+      <p class="footer-tagline">Limpeza de caixa d'água com compromisso, qualidade e total segurança. Fortaleza e Região Metropolitana.</p>
+      <div class="social-row">
+        <a href="#" class="social-btn" aria-label="Instagram" data-testid="footer-instagram-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" class="social-btn" aria-label="Facebook" data-testid="footer-facebook-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="footer-heading">Navegação</h3>
+      <ul class="footer-links">
+        <li><a href="#inicio" data-testid="footer-link-inicio">Início</a></li>
+        <li><a href="#servicos" data-testid="footer-link-servicos">Serviços</a></li>
+        <li><a href="#sobre" data-testid="footer-link-sobre">Sobre</a></li>
+        <li><a href="#contato" data-testid="footer-link-contato">Contato</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="footer-heading">Contato</h3>
+      <ul class="footer-links">
+        <li><a href="#" class="js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="footer-whatsapp-link"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>(85) 98607-5663</a></li>
+        <li><a href="tel:+558521806701" data-testid="footer-phone-link"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.22a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>(85) 2180-6701</a></li>
+        <li><a href="mailto:comercialmaximols@outlook.com" data-testid="footer-email-link"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 6 12 13 22 6"/></svg>comercialmaximols@outlook.com</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>&copy; <span class="js-year">2026</span> Máximo Limpeza &amp; Serviço. Todos os direitos reservados.</p>
+    <p>Limpeza de Caixa D'Água • Fortaleza-CE</p>
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.42-1.36a9.86 9.86 0 0 0 4.62 1.15h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2m0 18.06h-.01a8.15 8.15 0 0 1-4.15-1.14l-.3-.18-3.08.79.82-3-.2-.31a8.16 8.16 0 0 1-1.26-4.31c0-4.51 3.67-8.18 8.19-8.18 2.19 0 4.24.85 5.79 2.4a8.13 8.13 0 0 1 2.39 5.79c0 4.51-3.68 8.14-8.19 8.14m4.48-6.13c-.25-.12-1.45-.71-1.67-.79-.22-.08-.39-.12-.55.13-.16.24-.63.79-.77.95-.14.16-.28.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.24-.41.08-.16.04-.31-.02-.43-.06-.12-.55-1.32-.75-1.8-.2-.48-.4-.42-.55-.42-.14 0-.31-.01-.47-.01-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.04 0 1.2.88 2.36 1 2.52.12.16 1.73 2.65 4.2 3.71.59.25 1.05.4 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.45-.59 1.66-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28"/></svg>
+<a href="#" class="floating-wa js-wa-link" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" data-testid="floating-whatsapp-trigger">
+  <span class="floating-wa-ping" aria-hidden="true"></span>
+  <span class="floating-wa-btn">
+    <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  </span>
+  <span class="floating-wa-tip">Orçamento pelo WhatsApp</span>
 </a>
 
-<script>
-document.addEventListener('click', function(e) {
-  const link = e.target.closest('a[href*="wa.me"]');
-  if (!link) return;
-  
-  e.preventDefault();
-  
-  const waLink = link.href;
-  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  
-  if (isMobile) {
-    window.location = waLink;
-    setTimeout(() => {
-      const phone = waLink.match(/wa\.me\/(\d+)/)[1];
-      window.location = `https://web.whatsapp.com/send?phone=${phone}&text=Olá%2C%20gostaria%20de%20um%20orçamento%20para%20limpeza%20de%20caixa%20d%27água`;
-    }, 2500);
-  } else {
-    const phone = waLink.match(/wa\.me\/(\d+)/)[1];
-    window.open(`https://web.whatsapp.com/send?phone=${phone}&text=Olá%2C%20gostaria%20de%20um%20orçamento%20para%20limpeza%20de%20caixa%20d%27água`, '_blank');
-  }
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

@@ -16,17 +16,22 @@ Ou, sem extensão, apenas abra `index.html` diretamente no navegador.
 
 ```
 maximo-site/
-├── index.html   → site completo (HTML + CSS + JS em um único arquivo)
+├── index.html   → marcação da página (seções: header, hero, serviços, diferenciais,
+│                  como funciona, área de atuação, orçamento, footer)
+├── styles.css   → estilos (cores, tipografia e responsividade)
+├── script.js    → menu mobile, links de WhatsApp, scroll-reveal e formulário de orçamento
 └── README.md
 ```
 
+O layout e os textos seguem a landing page de referência do cliente ("Máximo Limpeza & Serviço"), recriados como HTML/CSS/JS estático — sem React, sem Node e sem passo de build.
+
 ## Pontos de edição rápida
 
-- **Cores da marca**: variáveis CSS no topo do `<style>` (`--navy`, `--cyan`, `--orange`).
-- **Textos**: procure pelas seções marcadas com `id="servicos"`, `id="diferenciais"`, `id="como-funciona"`, `id="contato"`.
-- **Contatos**: números de WhatsApp/telefone/e-mail aparecem em 3 lugares — botão do header, botão flutuante e bloco de contato final. Buscar por `5585986075663` para achar todos os links do WhatsApp de uma vez.
-- **Serviços adicionais**: duplique um `.svc-card` dentro de `.services-grid` para adicionar mais serviços além da limpeza de caixa d'água.
+- **Cores da marca**: variáveis CSS no topo de `styles.css` (`--navy-deep`, `--cyan`, `--orange`, etc.).
+- **Textos**: cada seção do `index.html` tem um `id` correspondente (`#servicos`, `#sobre`, `#processo`, `#area`, `#contato`).
+- **Contatos**: número de WhatsApp e mensagem padrão ficam no topo de `script.js` (`WHATSAPP_NUMBER` e `DEFAULT_MESSAGE`); todos os botões de WhatsApp usam a classe `js-wa-link` e recebem o link automaticamente.
+- **Serviços adicionais**: duplique um `.service-card-soon` dentro de `.services-grid` para adicionar mais serviços "em breve".
 
 ## Publicar
 
-Pode subir para Vercel, Netlify ou GitHub Pages como site estático — não precisa de build, é um único arquivo HTML.
+Pode subir para Vercel, Netlify ou GitHub Pages como site estático — não precisa de build, são apenas três arquivos (HTML, CSS, JS).
