@@ -17,7 +17,7 @@
   --slate-200: #E2E8F0;
   --slate-300: #CBD5E1;
   --slate-400: #94A3B8;
-  --slate-500: #64748B;
+  --slate-500: #778599; /* lightened from #64748B for WCAG AA text contrast (see stage 3 report) */
   --slate-600: #475569;
 
   --font-display: "Outfit", sans-serif;
@@ -1031,7 +1031,7 @@ input, select { font: inherit; }
   font-size: 12px;
   color: var(--slate-500);
 }
-.footer-bottom p:last-child { color: var(--slate-600); }
+.footer-bottom p:last-child { color: var(--slate-500); } /* was --slate-600 (#475569), ~2.6:1 on --navy-ink — failed WCAG AA */
 @media (min-width: 640px) { .footer-bottom { flex-direction: row; padding-left: 32px; padding-right: 32px; } }
 
 /* ==========================================================================
@@ -1292,4 +1292,70 @@ input, select { font: inherit; }
   .hero-actions .btn { width: 100%; }
   .hero-visual-caption { padding: 12px 16px; }
   .gallery-pair { gap: 8px; }
+}
+
+/* ==========================================================================
+   Stage 3 — Acessibilidade: skip-link + foco visível
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  padding: 14px 20px;
+  border-radius: 0 0 12px 0;
+  background: var(--cyan);
+  color: var(--navy-deep);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.skip-link:focus {
+  left: 0;
+  top: 0;
+  outline: 3px solid #fff;
+  outline-offset: -3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-color: var(--cyan);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   Stage 3 — Banner de consentimento de cookies / GA4
+   ========================================================================== */
+.consent-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 150;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px calc(18px + env(safe-area-inset-bottom));
+  background: rgba(7, 14, 36, 0.97);
+  border-top: 1px solid rgba(44, 168, 224, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
+}
+.consent-banner[hidden] { display: none; }
+.consent-text { max-width: 46rem; font-size: 0.85rem; line-height: 1.6; color: var(--slate-300); }
+.consent-text strong { color: #fff; }
+.consent-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-left: auto; }
+.consent-actions .btn { padding: 10px 20px; font-size: 0.85rem; }
+@media (min-width: 640px) {
+  .consent-banner { padding: 20px 32px calc(20px + env(safe-area-inset-bottom)); flex-wrap: nowrap; }
 }

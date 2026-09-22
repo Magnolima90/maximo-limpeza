@@ -23,6 +23,10 @@
 <meta name="twitter:description" content="Limpeza de caixa d'água com compromisso, qualidade e total segurança. Fortaleza e Região Metropolitana. Orçamento rápido pelo WhatsApp.">
 <meta name="twitter:image" content="https://maximo-limpeza.vercel.app/og-image.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%236cd4ff'/%3E%3Cstop offset='55%25' stop-color='%232ca8e0'/%3E%3Cstop offset='100%25' stop-color='%231a2b6d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M20 3C20 3 8 17.5 8 25a12 12 0 0 0 24 0C32 17.5 20 3 20 3Z' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="manifest" href="site.webmanifest">
+<!-- TODO: gerar icon-192.png e icon-512.png (PNG rasterizado do logo) e colocar em assets/icons/ — nenhuma ferramenta de rasterização SVG->PNG estava disponível neste ambiente para gerá-los agora -->
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="preload" as="image" href="assets/images/hero-bg.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
@@ -138,8 +142,19 @@
   ]
 }
 </script>
+<!-- Google Analytics 4 — só é efetivamente carregado após consentimento do usuário
+     (ver banner de cookies e script.js). Este bloco apenas prepara window.dataLayer
+     e a função gtag(); o script gtag.js remoto só é injetado em runtime quando o
+     visitante clica em "Aceitar" no banner, ou imediatamente se ele já aceitou antes. -->
+<!-- TODO: substituir G-XXXXXXXXXX pelo ID real do Google Analytics 4 -->
+<script>
+  window.GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+</script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
 <header class="site-header" data-testid="site-header">
   <div class="header-inner">
@@ -192,11 +207,11 @@
   </nav>
 </header>
 
-<main>
+<main id="main-content">
 
   <section id="inicio" class="hero" data-testid="hero-section">
     <div class="hero-bg" aria-hidden="true">
-      <img src="https://images.pexels.com/photos/247759/pexels-photo-247759.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" alt="">
+      <img src="assets/images/hero-bg.jpg" width="1920" height="1280" alt="" fetchpriority="high">
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-glow hero-glow-cyan" aria-hidden="true"></div>
@@ -233,7 +248,7 @@
         <div class="hero-visual-frame">
           <span class="frame-offset" aria-hidden="true" style="border-radius:2rem"></span>
           <div class="hero-visual-card glow-cyan">
-            <img class="img-grade" src="https://images.pexels.com/photos/45229/drop-of-water-inject-water-drip-45229.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Gota de água cristalina">
+            <img class="img-grade" src="assets/images/hero-visual-droplet.jpg" width="1200" height="728" alt="Gota de água cristalina" loading="lazy">
             <span class="img-tint" aria-hidden="true"></span>
             <div class="hero-visual-shade" aria-hidden="true"></div>
             <span class="corner-accent corner-accent-tr" aria-hidden="true"></span>
@@ -305,7 +320,7 @@
 
       <div class="services-grid">
         <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" class="service-card service-card-main js-wa-link reveal" target="_blank" rel="noopener noreferrer" data-testid="service-card-main-caixa-dagua">
-          <img class="img-grade" src="https://images.pexels.com/photos/45229/drop-of-water-inject-water-drip-45229.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Gota de água pura em macro">
+          <img class="img-grade" src="assets/images/service-droplet.jpg" width="1400" height="849" alt="Gota de água pura em macro" loading="lazy">
           <span class="img-tint" aria-hidden="true"></span>
           <span class="corner-accent corner-accent-tr" aria-hidden="true"></span>
           <div class="service-card-shade" aria-hidden="true"></div>
@@ -565,7 +580,7 @@
       <div class="coverage-visual reveal">
         <span class="frame-offset" aria-hidden="true" style="border-radius:2rem"></span>
         <div class="coverage-image glow-cyan">
-          <img class="img-grade" src="https://images.pexels.com/photos/33951034/pexels-photo-33951034.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Orla de Fortaleza, Ceará">
+          <img class="img-grade" src="assets/images/coverage-fortaleza.jpg" width="1400" height="933" alt="Orla de Fortaleza, Ceará" loading="lazy">
           <span class="img-tint" aria-hidden="true"></span>
           <span class="corner-accent corner-accent-br" aria-hidden="true"></span>
         </div>
@@ -805,6 +820,8 @@
 
           <div class="reveal" style="transition-delay:.18s">
             <form class="quote-form js-quote-form" data-testid="quote-form">
+              <!-- honeypot anti-spam: campo invisível para humanos; se vier preenchido, /api/lead descarta o envio silenciosamente -->
+              <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
               <div class="form-field">
                 <label for="nome">Nome completo</label>
                 <input id="nome" name="nome" type="text" required placeholder="Seu nome" data-testid="quote-form-name-input">
@@ -920,6 +937,14 @@
     </button>
     <img class="lightbox-img" id="lightbox-img" src="" alt="">
     <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+</div>
+
+<div class="consent-banner js-consent-banner" id="consent-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
+  <p class="consent-text">Usamos cookies e o Google Analytics para entender como você usa o site e melhorar sua experiência. <strong>Seus dados de contato só são usados para retornar seu orçamento.</strong></p>
+  <div class="consent-actions">
+    <button type="button" class="btn btn-outline js-consent-decline" data-testid="consent-decline-button">Recusar</button>
+    <button type="button" class="btn btn-orange js-consent-accept" data-testid="consent-accept-button">Aceitar</button>
   </div>
 </div>
 

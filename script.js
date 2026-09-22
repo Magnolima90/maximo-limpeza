@@ -9,6 +9,27 @@
   }
 
   /* ---------------------------------------------------------------------
+     Analytics (GA4) helpers — every call is guarded so nothing errors or
+     does anything when the user hasn't consented (gtag not loaded yet).
+     --------------------------------------------------------------------- */
+  function trackEvent(name, params) {
+    if (typeof gtag === "function") {
+      gtag("event", name, params || {});
+    }
+  }
+
+  function getLinkLocation(el) {
+    if (!el || !el.closest) return "unknown";
+    if (el.closest(".floating-wa")) return "floating";
+    if (el.closest(".mobile-nav")) return "mobile_menu";
+    if (el.closest(".site-header")) return "header";
+    if (el.closest(".site-footer")) return "footer";
+    var section = el.closest("section[id]");
+    if (section) return section.id;
+    return "unknown";
+  }
+
+  /* ---------------------------------------------------------------------
      Populate every WhatsApp link on the page. The href is already correct
      in the raw HTML (see index.html) — this just keeps it in sync and
      supports a per-element custom message via data-wa-message (used by
@@ -19,6 +40,9 @@
   document.querySelectorAll(".js-wa-link").forEach(function (el) {
     var customMessage = el.getAttribute("data-wa-message");
     el.setAttribute("href", customMessage ? waLink(customMessage) : defaultHref);
+    el.addEventListener("click", function () {
+      trackEvent("whatsapp_click", { link_location: getLinkLocation(el) });
+    });
   });
 
   /* ---------------------------------------------------------------------
@@ -178,6 +202,7 @@
       var endereco = (form.endereco && form.endereco.value.trim()) || "";
       var tipo = (form.tipo && form.tipo.value) || "";
       var capacidade = (form.capacidade && form.capacidade.value.trim()) || "";
+      var honeypot = (form.website && form.website.value.trim()) || "";
       var msg =
         DEFAULT_MESSAGE +
         "\n\nNome: " + nome +
@@ -185,6 +210,28 @@
         "\nEndereço: " + endereco +
         "\nTipo de imóvel: " + tipo;
       if (capacidade) msg += "\nQuantidade/capacidade das caixas: " + capacidade;
+
+      /* Fire-and-forget: send the lead to our serverless capture endpoint in
+         parallel. This must NEVER block or delay the WhatsApp redirect below,
+         which is the primary, always-working path — so no await, and any
+         failure (network, 429, 500, endpoint missing) is silently ignored. */
+      try {
+        fetch("/api/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            nome: nome,
+            telefone: telefone,
+            endereco: endereco,
+            tipo: tipo,
+            quantidade: capacidade,
+            honeypot: honeypot
+          })
+        }).catch(function () {});
+      } catch (err) {}
+
+      trackEvent("form_submit", { form_id: "quote-form", link_location: "contato" });
+
       window.open(waLink(msg), "_blank", "noopener");
     });
   }
@@ -231,7 +278,17 @@
   });
 
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeLightbox();
+    if (e.key === "Escape") {
+      closeLightbox();
+      return;
+    }
+    /* Focus trap: while the lightbox is open, the close button is the only
+       focusable element inside it, so keep Tab/Shift+Tab from leaking focus
+       to elements behind the overlay. */
+    if (e.key === "Tab" && lightbox && !lightbox.hidden) {
+      e.preventDefault();
+      if (lightboxCloseBtn) lightboxCloseBtn.focus();
+    }
   });
 
   /* ---------------------------------------------------------------------
@@ -254,4 +311,67 @@
      --------------------------------------------------------------------- */
   var yearEl = document.querySelector(".js-year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ---------------------------------------------------------------------
+     Cookie / GA4 consent banner. Decision is remembered in localStorage
+     ("maximo_consent": "accepted" | "declined") so the banner is shown at
+     most once per browser. GA4's gtag.js is only ever injected after an
+     explicit "Aceitar" click (or immediately, on a later page load, if the
+     user had already accepted before) — never eagerly, and never at all if
+     declined.
+     --------------------------------------------------------------------- */
+  var CONSENT_KEY = "maximo_consent";
+
+  function loadGA4() {
+    var id = window.GA_MEASUREMENT_ID;
+    if (!id || document.getElementById("ga4-script")) return;
+    var script = document.createElement("script");
+    script.id = "ga4-script";
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+    document.head.appendChild(script);
+    gtag("js", new Date());
+    gtag("config", id, { anonymize_ip: true });
+  }
+
+  function getConsent() {
+    try {
+      return window.localStorage.getItem(CONSENT_KEY);
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function setConsent(value) {
+    try {
+      window.localStorage.setItem(CONSENT_KEY, value);
+    } catch (err) {}
+  }
+
+  var consentBanner = document.getElementById("consent-banner");
+  var existingConsent = getConsent();
+
+  if (existingConsent === "accepted") {
+    loadGA4();
+  } else if (existingConsent !== "declined" && consentBanner) {
+    consentBanner.hidden = false;
+  }
+
+  if (consentBanner) {
+    var acceptBtn = consentBanner.querySelector(".js-consent-accept");
+    var declineBtn = consentBanner.querySelector(".js-consent-decline");
+    if (acceptBtn) {
+      acceptBtn.addEventListener("click", function () {
+        setConsent("accepted");
+        consentBanner.hidden = true;
+        loadGA4();
+      });
+    }
+    if (declineBtn) {
+      declineBtn.addEventListener("click", function () {
+        setConsent("declined");
+        consentBanner.hidden = true;
+      });
+    }
+  }
 })();

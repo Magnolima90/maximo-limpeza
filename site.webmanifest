@@ -1,0 +1,24 @@
+{
+  "name": "Máximo Limpeza & Serviço",
+  "short_name": "Máximo Limpeza",
+  "description": "Limpeza e higienização de caixa d'água em Fortaleza e Região Metropolitana.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070E24",
+  "theme_color": "#070E24",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
