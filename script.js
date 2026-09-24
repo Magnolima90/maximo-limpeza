@@ -21,6 +21,7 @@
   function getLinkLocation(el) {
     if (!el || !el.closest) return "unknown";
     if (el.closest(".floating-wa")) return "floating";
+    if (el.closest(".show-me")) return "mostre-me";
     if (el.closest(".mobile-nav")) return "mobile_menu";
     if (el.closest(".site-header")) return "header";
     if (el.closest(".site-footer")) return "footer";
@@ -200,6 +201,7 @@
       var nome = (form.nome && form.nome.value.trim()) || "";
       var telefone = (form.telefone && form.telefone.value.trim()) || "";
       var endereco = (form.endereco && form.endereco.value.trim()) || "";
+      var servico = (form.servico && form.servico.value) || "";
       var tipo = (form.tipo && form.tipo.value) || "";
       var capacidade = (form.capacidade && form.capacidade.value.trim()) || "";
       var honeypot = (form.website && form.website.value.trim()) || "";
@@ -207,6 +209,7 @@
         DEFAULT_MESSAGE +
         "\n\nNome: " + nome +
         "\nTelefone: " + telefone +
+        "\nServiço: " + servico +
         "\nEndereço: " + endereco +
         "\nTipo de imóvel: " + tipo;
       if (capacidade) msg += "\nQuantidade/capacidade das caixas: " + capacidade;
@@ -223,6 +226,7 @@
             nome: nome,
             telefone: telefone,
             endereco: endereco,
+            servico: servico,
             tipo: tipo,
             quantidade: capacidade,
             honeypot: honeypot
@@ -232,6 +236,20 @@
 
       trackEvent("form_submit", { form_id: "quote-form", link_location: "contato" });
 
+      window.open(waLink(msg), "_blank", "noopener");
+    });
+  }
+
+  /* ---------------------------------------------------------------------
+     "Mostre-me como!" mini form -> opens WhatsApp with the visitor's name
+     --------------------------------------------------------------------- */
+  var miniForm = document.querySelector(".js-mini-form");
+  if (miniForm) {
+    miniForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var nome = (miniForm.nome && miniForm.nome.value.trim()) || "";
+      var msg = "Olá, meu nome é " + nome + ". Quero saber como manter a água da minha caixa d'água limpa e segura.";
+      trackEvent("form_submit", { form_id: "show-me-form", link_location: "mostre-me" });
       window.open(waLink(msg), "_blank", "noopener");
     });
   }

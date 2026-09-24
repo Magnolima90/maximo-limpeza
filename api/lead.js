@@ -91,7 +91,7 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const { nome, telefone, endereco, tipo, quantidade, honeypot, website } = body || {};
+  const { nome, telefone, endereco, servico, tipo, quantidade, honeypot, website } = body || {};
 
   // Honeypot: campo escondido que humanos não preenchem. Se vier preenchido,
   // finge sucesso (200) sem processar/encaminhar, para não alertar bots.
@@ -112,6 +112,7 @@ module.exports = async (req, res) => {
     nome: nome.trim(),
     telefone: telefone.trim(),
     endereco: typeof endereco === "string" ? endereco.trim() : "",
+    servico: typeof servico === "string" ? servico.trim() : "",
     tipo: typeof tipo === "string" ? tipo.trim() : "",
     quantidade: typeof quantidade === "string" ? quantidade.trim() : "",
     timestamp: new Date().toISOString(),

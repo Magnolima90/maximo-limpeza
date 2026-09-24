@@ -16,8 +16,10 @@ Ou, sem extensão, apenas abra `index.html` diretamente no navegador.
 
 ```
 maximo-site/
-├── index.html   → marcação da página (seções: header, hero, serviços, diferenciais,
-│                  como funciona, área de atuação, orçamento, footer)
+├── index.html   → marcação da página, na ordem da referência toplimppe.com.br: hero,
+│                  serviços, segmentos, corporativo, "Mostre-me como!", diferenciais,
+│                  números, clientes, depoimentos, sobre,
+│                  processo, tipos de caixa, laudo, antes/depois, área, FAQ, contato
 ├── styles.css   → estilos (cores, tipografia e responsividade)
 ├── script.js    → menu mobile, links de WhatsApp, scroll-reveal e formulário de orçamento
 └── README.md
@@ -30,6 +32,7 @@ O layout e os textos seguem a landing page de referência do cliente ("Máximo L
 - **Cores da marca**: variáveis CSS no topo de `styles.css` (`--navy-deep`, `--cyan`, `--orange`, etc.).
 - **Textos**: cada seção do `index.html` tem um `id` correspondente (`#servicos`, `#sobre`, `#processo`, `#area`, `#contato`).
 - **Contatos**: número de WhatsApp e mensagem padrão ficam no topo de `script.js` (`WHATSAPP_NUMBER` e `DEFAULT_MESSAGE`); todos os botões de WhatsApp usam a classe `js-wa-link` e recebem o link automaticamente.
+- **Redes sociais**: Instagram `https://www.instagram.com/limpezaeservicosmaximo` e Facebook `https://www.facebook.com/limpezaeservicosmaximo` — usados no header, bloco de contato, rodapé, botão flutuante e no `sameAs` do schema.org em `index.html`.
 - **Serviços adicionais**: duplique um `.service-card-soon` dentro de `.services-grid` para adicionar mais serviços "em breve".
 
 ## Publicar

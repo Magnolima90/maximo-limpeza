@@ -35,7 +35,7 @@
      foram omitidos de propósito por ainda não termos esses dados reais — ver TODOs abaixo. -->
 <!-- TODO: adicionar endereço completo (PostalAddress) quando disponível -->
 <!-- TODO: adicionar horário de funcionamento (openingHoursSpecification) -->
-<!-- TODO: adicionar sameAs com URLs reais de redes sociais (Instagram/Facebook/Google Business) quando disponíveis -->
+<!-- TODO: adicionar Google Business ao sameAs quando disponível -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,6 +47,8 @@
       "image": "https://maximo-limpeza.vercel.app/og-image.jpg",
       "telephone": "+558521806701",
       "email": "comercialmaximols@outlook.com",
+      "logo": "https://maximo-limpeza.vercel.app/assets/images/logo-maximo.png",
+      "sameAs": ["https://www.instagram.com/limpezaeservicosmaximo", "https://www.facebook.com/limpezaeservicosmaximo"],
       "url": "https://maximo-limpeza.vercel.app/",
       "description": "Limpeza de caixa d'água com compromisso, qualidade e total segurança. Fortaleza e Região Metropolitana. Orçamento rápido pelo WhatsApp.",
       "areaServed": [
@@ -159,31 +161,23 @@
 <header class="site-header" data-testid="site-header">
   <div class="header-inner">
     <a href="#inicio" class="logo" data-testid="logo-link">
-      <svg viewBox="0 0 40 40" class="logo-mark" aria-hidden="true">
-        <defs>
-          <linearGradient id="drop-header" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#6cd4ff"/>
-            <stop offset="55%" stop-color="#2ca8e0"/>
-            <stop offset="100%" stop-color="#1a2b6d"/>
-          </linearGradient>
-        </defs>
-        <path d="M20 3C20 3 8 17.5 8 25a12 12 0 0 0 24 0C32 17.5 20 3 20 3Z" fill="url(#drop-header)"/>
-        <path d="M14.5 24.5a5.5 5.5 0 0 0 4.2 6.6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.85"/>
-      </svg>
-      <span class="logo-text">
-        <span class="logo-name">MÁXIMO</span>
-        <span class="logo-sub">Limpeza &amp; Serviço</span>
-      </span>
+      <img src="assets/images/logo-maximo.png" width="640" height="210" alt="Máximo Limpeza &amp; Serviço" class="logo-img" fetchpriority="high">
     </a>
 
     <nav class="main-nav" aria-label="Navegação principal">
       <a href="#inicio" data-testid="nav-link-inicio">Início</a>
       <a href="#servicos" data-testid="nav-link-servicos">Serviços</a>
-      <a href="#sobre" data-testid="nav-link-sobre">Sobre</a>
+      <a href="#segmentos" data-testid="nav-link-segmentos">Segmentos</a>
+      <a href="#corporativo" data-testid="nav-link-corporativo">Corporativo</a>
+      <a href="#diferenciais" data-testid="nav-link-diferenciais">Diferenciais</a>
+      <a href="#clientes" data-testid="nav-link-clientes">Clientes</a>
       <a href="#contato" data-testid="nav-link-contato">Contato</a>
     </nav>
 
     <div class="header-actions">
+      <a href="https://www.instagram.com/limpezaeservicosmaximo" class="header-social" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-testid="header-instagram-button">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
       <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" class="btn btn-orange header-cta js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="header-whatsapp-cta-button">
         <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
         <span>Fale no WhatsApp</span>
@@ -198,7 +192,10 @@
   <nav class="mobile-nav" id="mobile-nav" aria-label="Navegação mobile">
     <a href="#inicio" data-testid="mobile-nav-link-inicio">Início</a>
     <a href="#servicos" data-testid="mobile-nav-link-servicos">Serviços</a>
-    <a href="#sobre" data-testid="mobile-nav-link-sobre">Sobre</a>
+    <a href="#segmentos" data-testid="mobile-nav-link-segmentos">Segmentos</a>
+    <a href="#corporativo" data-testid="mobile-nav-link-corporativo">Corporativo</a>
+    <a href="#diferenciais" data-testid="mobile-nav-link-diferenciais">Diferenciais</a>
+    <a href="#clientes" data-testid="mobile-nav-link-clientes">Clientes</a>
     <a href="#contato" data-testid="mobile-nav-link-contato">Contato</a>
     <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" class="btn btn-orange mobile-cta js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="mobile-header-whatsapp-cta-button">
       <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
@@ -208,7 +205,6 @@
 </header>
 
 <main id="main-content">
-
   <section id="inicio" class="hero" data-testid="hero-section">
     <div class="hero-bg" aria-hidden="true">
       <img src="assets/images/hero-bg.jpg" width="1920" height="1280" alt="" fetchpriority="high">
@@ -224,15 +220,30 @@
           <span>Especialistas em Fortaleza e RMF</span>
         </div>
         <h1 class="hero-title">
-          <span class="block">Limpeza de <span class="text-gradient-water">Caixa D'Água</span></span>
-          <span class="block">com compromisso,</span>
-          <span class="block">qualidade e <span class="text-orange">total segurança</span>.</span>
+          <span class="block">Limpeza e desinfecção de</span>
+          <span class="block"><span class="text-gradient-water">reservatórios e caixas d'água</span></span>
+          <span class="block">com <span class="text-orange">segurança, qualidade</span> e laudo técnico.</span>
         </h1>
-        <p class="hero-text">Higienização profissional de caixas d'água com produtos certificados, equipe capacitada e laudo técnico após o serviço — para a água da sua casa ou empresa sempre limpa e segura.</p>
+        <p class="hero-text">Higienização profissional para residências, condomínios e empresas em Fortaleza e região. Nossa equipe atua com produtos certificados, técnica de limpeza especializada e acompanhamento para proteger a saúde do seu ambiente.</p>
+        <!-- TODO: confirmar com o cliente os números reais (anos de experiência, serviços realizados) -->
+        <div class="hero-metrics">
+          <div class="hero-metric">
+            <strong>+13 anos</strong>
+            <span>de experiência</span>
+          </div>
+          <div class="hero-metric">
+            <strong>+2.000</strong>
+            <span>serviços realizados</span>
+          </div>
+          <div class="hero-metric">
+            <strong>Laudo</strong>
+            <span>técnico incluso</span>
+          </div>
+        </div>
         <div class="hero-actions">
           <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" class="btn btn-orange btn-lg js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="hero-whatsapp-quote-button">
             <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-            <span>Solicitar Orçamento</span>
+            <span>Solicite seu orçamento</span>
             <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
           <button type="button" class="btn btn-outline btn-lg js-scroll-to" data-target="#servicos" data-testid="hero-services-scroll-button">Ver serviços</button>
@@ -280,30 +291,6 @@
       <div class="marquee-row" aria-hidden="true" id="marquee-row-b"></div>
     </div>
   </div>
-
-  <section id="sobre" class="section section-alt" data-testid="about-section">
-    <div class="section-glow glow-left-bottom" aria-hidden="true"></div>
-    <div class="container about-grid">
-      <div class="about-visual reveal">
-        <span class="frame-offset" aria-hidden="true" style="border-radius:2rem"></span>
-        <div class="about-photo-placeholder glow-cyan">
-          <svg class="about-photo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9" cy="7" r="4"/><path d="M23 20v-1a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <p>Foto da equipe</p>
-          <!-- TODO: substituir por foto real da equipe -->
-        </div>
-      </div>
-
-      <div class="about-copy">
-        <div class="reveal">
-          <p class="eyebrow"><span class="eyebrow-dot"></span>Sobre a Máximo</p>
-          <h2 class="section-title">Compromisso com <span class="text-gradient-water">água limpa e segura</span></h2>
-          <p class="section-lead">A Máximo Limpeza &amp; Serviço nasceu do compromisso de oferecer higienização de caixas d'água com segurança, técnica e responsabilidade. Seguimos boas práticas de limpeza e desinfecção em cada etapa do serviço — do acesso ao reservatório até a entrega do laudo técnico — para que a água usada na sua casa, condomínio ou empresa esteja sempre própria para o consumo.</p>
-          <!-- TODO: revisar/ajustar texto institucional com o cliente -->
-          <p class="about-cnpj">CNPJ: <!-- TODO: preencher CNPJ -->[a preencher]</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section id="servicos" class="section" data-testid="services-section">
     <div class="section-glow glow-right" aria-hidden="true"></div>
@@ -374,6 +361,128 @@
           </div>
         </div>
       </div>
+
+      <div class="section-cta reveal">
+        <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20todos%20os%20servi%C3%A7os%20da%20M%C3%A1ximo%20Limpeza%20%26%20Servi%C3%A7o" data-wa-message="Olá, gostaria de conhecer todos os serviços da Máximo Limpeza &amp; Serviço" class="btn btn-outline btn-lg js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="services-more-button">
+          <span>Mais serviços</span>
+          <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="segmentos" class="section section-alt" data-testid="segments-section">
+    <div class="section-glow glow-right-mid" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-head-single reveal">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Segmentos</p>
+        <h2 class="section-title">Soluções para <span class="text-gradient-water">residências, condomínios e empresas</span></h2>
+      </div>
+
+      <!-- TODO: confirmar com o cliente os segmentos efetivamente atendidos -->
+      <div class="segment-grid">
+        <article class="segment-card reveal">
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 9.5V20h14V9.5"/><path d="M9 20v-7h6v7"/></svg></span>
+          <h3>Residencial</h3>
+          <p>Proteção da água consumida em casa com limpeza segura, ágil e sem transtornos.</p>
+        </article>
+        <article class="segment-card reveal" style="transition-delay:.09s">
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14"/><path d="M7 10h10M7 14h10M9 21v-4h6v4"/></svg></span>
+          <h3>Condomínios</h3>
+          <p>Rotina de limpeza semestral, laudo para a administração e melhor custo-benefício para o condomínio.</p>
+        </article>
+        <article class="segment-card reveal" style="transition-delay:.18s">
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9h18"/><path d="M10 20v-6h4v6"/></svg></span>
+          <h3>Comércio e lojas</h3>
+          <p>Lojas, restaurantes e centros comerciais com água segura para clientes e colaboradores.</p>
+        </article>
+        <article class="segment-card reveal">
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V8l9-5 9 5v13"/><path d="M7 21v-6h10v6"/><path d="M9 12h6"/></svg></span>
+          <h3>Indústrias e galpões</h3>
+          <p>Reservatórios de grande porte, com vistoria técnica e planejamento para não parar a operação.</p>
+        </article>
+        <article class="segment-card reveal" style="transition-delay:.09s">
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
+          <h3>Escolas e creches</h3>
+          <p>Cuidado redobrado com a água consumida por crianças, professores e funcionários.</p>
+        </article>
+        <article class="segment-card reveal" style="transition-delay:.18s">
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M12 9v6M9 12h6"/></svg></span>
+          <h3>Clínicas e hotéis</h3>
+          <p>Ambientes que exigem padrão elevado de higiene e comprovação da limpeza realizada.</p>
+        </article>
+      </div>
+
+      <div class="section-cta reveal">
+        <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" class="btn btn-orange btn-lg js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="segments-quote-button">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          <span>Solicite seu orçamento</span>
+          <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="corporativo" class="section" data-testid="corporate-section">
+    <div class="container corp-grid">
+      <div class="reveal">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Corporativo</p>
+        <h2 class="section-title">Condomínios e empresas com <span class="text-gradient-water">água segura o ano todo</span></h2>
+        <p class="section-lead">Síndicos e gestores contam com um plano de limpeza periódica, vistoria técnica no local e laudo a cada serviço — sem compromisso para o orçamento.</p>
+        <ul class="corp-list">
+          <li class="corp-item">
+            <span class="corp-check"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></span>
+            <span><strong>Saúde de colaboradores e moradores</strong><span>Água limpa reduz o risco de doenças de veiculação hídrica e afastamentos.</span></span>
+          </li>
+          <li class="corp-item">
+            <span class="corp-check"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></span>
+            <span><strong>Qualidade da água garantida</strong><span>Remoção de sedimentos, lodo e microrganismos, com desinfecção por produtos certificados.</span></span>
+          </li>
+          <li class="corp-item">
+            <span class="corp-check"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></span>
+            <span><strong>Sistema funcionando por mais tempo</strong><span>Reservatórios limpos evitam entupimentos em boias, registros e tubulações.</span></span>
+          </li>
+          <li class="corp-item">
+            <span class="corp-check"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></span>
+            <span><strong>Conformidade e comprovação</strong><span>Laudo técnico após cada serviço para apresentar à administração, auditorias e fiscalização.</span></span>
+          </li>
+        </ul>
+        <div class="section-cta section-cta-left">
+          <a href="#laudo-tecnico" class="btn btn-outline btn-lg" data-testid="corporate-more-button"><span>Saiba mais</span> <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+
+      <div class="quote-panel condo-panel reveal" style="transition-delay:.09s">
+        <div class="quote-glow quote-glow-a" aria-hidden="true"></div>
+        <div class="quote-glow quote-glow-b" aria-hidden="true"></div>
+        <div class="condo-panel-inner">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Para síndicos e gestores</p>
+          <h3 class="condo-panel-title">Orçamento com <span class="text-gradient-water">vistoria no local</span></h3>
+          <p class="section-lead">Dimensionamos corretamente a limpeza de cada reservatório do condomínio ou empresa antes de enviar a proposta.</p>
+          <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20sou%20s%C3%ADndico%2Fgestor%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20vistoria%20para%20meu%20condom%C3%ADnio%2Fempresa" class="btn btn-orange btn-lg js-wa-link" data-wa-message="Olá, sou síndico/gestor e gostaria de solicitar um orçamento com vistoria para meu condomínio/empresa" target="_blank" rel="noopener noreferrer" data-testid="condo-whatsapp-button">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            <span>Solicitar orçamento com vistoria</span>
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mostre-me" class="show-me" data-testid="show-me-section">
+    <div class="container show-me-inner reveal">
+      <div>
+        <h2 class="show-me-title">Mostre-me como!</h2>
+        <p class="show-me-text">Vamos te mostrar como manter a água do seu imóvel limpa e segura, com o melhor custo-benefício.</p>
+      </div>
+      <form class="show-me-form js-mini-form" data-testid="show-me-form">
+        <label for="mini-nome" class="visually-hidden">Seu nome</label>
+        <input id="mini-nome" name="nome" type="text" required placeholder="Digite seu nome" autocomplete="name" data-testid="show-me-name-input">
+        <button type="submit" class="btn btn-orange" data-testid="show-me-submit-button">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          <span>Quero saber</span>
+        </button>
+      </form>
     </div>
   </section>
 
@@ -411,43 +520,131 @@
           <p>Ao final, você recebe um laudo técnico que comprova a qualidade da higienização.</p>
         </div>
       </div>
+
+      <div class="section-cta reveal">
+        <a href="#processo" class="btn btn-outline btn-lg" data-testid="differentials-more-button"><span>Saiba mais</span> <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
     </div>
   </section>
 
-  <section id="tipos-de-caixa" class="section" data-testid="tank-types-section">
-    <div class="section-glow glow-right" aria-hidden="true"></div>
+  <section id="numeros" class="section stats-section" data-testid="stats-section">
+    <div class="container numbers-grid">
+      <div class="reveal">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Números da Máximo</p>
+        <h2 class="section-title">Experiência que se traduz em <span class="text-orange">água limpa</span></h2>
+        <p class="section-lead">Nossa equipe é treinada para trabalho em altura e em espaços confinados, usa EPIs completos e segue um protocolo padronizado de limpeza e desinfecção em cada reservatório.</p>
+        <!-- TODO: confirmar com o cliente os números reais e as capacitações da equipe antes de publicar -->
+        <div class="section-cta section-cta-left">
+          <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" class="btn btn-orange btn-lg js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="numbers-quote-button">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            <span>Solicite seu orçamento</span>
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="stats-strip reveal">
+        <div class="stat-box">
+          <span class="stat-number">13+</span>
+          <span class="stat-label">anos de experiência</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">2.000+</span>
+          <span class="stat-label">serviços executados</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">5</span>
+          <span class="stat-label">regiões atendidas</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">foco em segurança</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="clientes" class="section section-alt" data-testid="clients-section">
     <div class="container">
       <div class="section-head-single reveal">
-        <p class="eyebrow"><span class="eyebrow-dot"></span>Tipos de caixa</p>
-        <h2 class="section-title">Tipos de caixa que <span class="text-gradient-water">atendemos</span></h2>
-        <p class="section-lead">Da caixa residencial de 500L ao grande reservatório de condomínio, cuidamos de todos os materiais e portes.</p>
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Clientes e parceiros</p>
+        <h2 class="section-title">Quem confia na <span class="text-gradient-water">Máximo</span></h2>
       </div>
 
-      <div class="tank-types-grid">
-        <div class="tank-type-card reveal" data-testid="tank-type-card-polietileno">
-          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="4"/><line x1="7" y1="10" x2="17" y2="10"/></svg></span>
-          <h3>Polietileno</h3>
-          <p>Caixas plásticas residenciais, leves e de fácil manutenção — de 500L a 5.000L.</p>
+      <!-- TODO: substituir pelos logotipos reais de clientes (com autorização) -->
+      <div class="clients-carousel reveal" data-testid="clients-carousel">
+        <div class="clients-track">
+          <div class="clients-row"><span class="client-chip">Residências</span><span class="client-chip">Condomínios</span><span class="client-chip">Escolas</span><span class="client-chip">Hotéis</span><span class="client-chip">Empresas</span><span class="client-chip">Comércios</span><span class="client-chip">Residências</span><span class="client-chip">Condomínios</span><span class="client-chip">Escolas</span><span class="client-chip">Hotéis</span><span class="client-chip">Empresas</span><span class="client-chip">Comércios</span></div>
+          <div class="clients-row" aria-hidden="true"><span class="client-chip">Residências</span><span class="client-chip">Condomínios</span><span class="client-chip">Escolas</span><span class="client-chip">Hotéis</span><span class="client-chip">Empresas</span><span class="client-chip">Comércios</span><span class="client-chip">Residências</span><span class="client-chip">Condomínios</span><span class="client-chip">Escolas</span><span class="client-chip">Hotéis</span><span class="client-chip">Empresas</span><span class="client-chip">Comércios</span></div>
         </div>
-        <div class="tank-type-card reveal" data-testid="tank-type-card-fibra" style="transition-delay:.06s">
-          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
-          <h3>Fibra de vidro</h3>
-          <p>Reservatórios em fibra, comuns em condomínios e prédios comerciais.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="depoimentos" class="section" data-testid="testimonials-section">
+    <div class="section-glow glow-top-center" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-head-single reveal">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Depoimentos</p>
+        <h2 class="section-title">O que nossos <span class="text-orange">clientes dizem</span></h2>
+      </div>
+
+      <!-- TODO: os 3 depoimentos abaixo são textos de exemplo — substituir pelos depoimentos reais de clientes (nome, texto, bairro) antes de publicar -->
+      <div class="testimonial-grid">
+        <div class="testimonial-card reveal" data-testid="testimonial-card-0">
+          <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 4C6 4 3.5 6.7 3.5 10.5c0 3.3 2 5.5 4.7 5.5.3 2.6-1.2 4.4-3.6 5l.6 1.5c4-.9 6.3-3.6 6.3-7.8V10.5C11.5 6.7 13 4 9.5 4Zm10 0c-3.5 0-6 2.7-6 6.5 0 3.3 2 5.5 4.7 5.5.3 2.6-1.2 4.4-3.6 5l.6 1.5c4-.9 6.3-3.6 6.3-7.8V10.5C21.5 6.7 23 4 19.5 4Z"/></svg>
+          <p class="testimonial-text">"A equipe foi muito profissional e o serviço deixou a água do condomínio realmente segura. O laudo técnico entregado foi um diferencial muito importante para a gestão."</p>
+          <div class="testimonial-footer">
+            <span class="testimonial-avatar" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></span>
+            <span>
+              <span class="testimonial-name">Sérgio M.</span>
+              <span class="testimonial-role">Síndico em Fortaleza</span>
+            </span>
+          </div>
         </div>
-        <div class="tank-type-card reveal" data-testid="tank-type-card-inox" style="transition-delay:.12s">
-          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 20.66 7v10L12 22 3.34 17V7L12 2z"/><circle cx="12" cy="12" r="3"/></svg></span>
-          <h3>Inox</h3>
-          <p>Caixas de aço inoxidável, com alta durabilidade e resistência.</p>
+        <div class="testimonial-card reveal" data-testid="testimonial-card-1" style="transition-delay:.09s">
+          <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 4C6 4 3.5 6.7 3.5 10.5c0 3.3 2 5.5 4.7 5.5.3 2.6-1.2 4.4-3.6 5l.6 1.5c4-.9 6.3-3.6 6.3-7.8V10.5C11.5 6.7 13 4 9.5 4Zm10 0c-3.5 0-6 2.7-6 6.5 0 3.3 2 5.5 4.7 5.5.3 2.6-1.2 4.4-3.6 5l.6 1.5c4-.9 6.3-3.6 6.3-7.8V10.5C21.5 6.7 23 4 19.5 4Z"/></svg>
+          <p class="testimonial-text">"Atendimento rápido, limpeza bem feita e visão clara de tudo que precisava ser feito. A água ficou com cheiro e aparência melhor imediatamente após a limpeza."</p>
+          <div class="testimonial-footer">
+            <span class="testimonial-avatar" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></span>
+            <span>
+              <span class="testimonial-name">Marina A.</span>
+              <span class="testimonial-role">Residência em Caucaia</span>
+            </span>
+          </div>
         </div>
-        <div class="tank-type-card reveal" data-testid="tank-type-card-concreto" style="transition-delay:.18s">
-          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="9"/><line x1="15" y1="9" x2="15" y2="15"/><line x1="9" y1="15" x2="9" y2="21"/></svg></span>
-          <h3>Concreto / Alvenaria</h3>
-          <p>Reservatórios de concreto ou alvenaria, elevados ou enterrados, comuns em condomínios.</p>
+        <div class="testimonial-card reveal" data-testid="testimonial-card-2" style="transition-delay:.18s">
+          <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 4C6 4 3.5 6.7 3.5 10.5c0 3.3 2 5.5 4.7 5.5.3 2.6-1.2 4.4-3.6 5l.6 1.5c4-.9 6.3-3.6 6.3-7.8V10.5C11.5 6.7 13 4 9.5 4Zm10 0c-3.5 0-6 2.7-6 6.5 0 3.3 2 5.5 4.7 5.5.3 2.6-1.2 4.4-3.6 5l.6 1.5c4-.9 6.3-3.6 6.3-7.8V10.5C21.5 6.7 23 4 19.5 4Z"/></svg>
+          <p class="testimonial-text">"Fizemos a limpeza do reservatório da empresa e o processo foi muito bem conduzido. A equipe foi pontual, cuidadosa e explicou tudo claramente antes e depois do serviço."</p>
+          <div class="testimonial-footer">
+            <span class="testimonial-avatar" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></span>
+            <span>
+              <span class="testimonial-name">Eduardo R.</span>
+              <span class="testimonial-role">Gestor de empresa</span>
+            </span>
+          </div>
         </div>
-        <div class="tank-type-card reveal" data-testid="tank-type-card-cisternas" style="transition-delay:.24s">
-          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11c0-3.5 3.5-6 8-6s8 2.5 8 6v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7z"/><line x1="4" y1="11" x2="20" y2="11"/></svg></span>
-          <h3>Cisternas</h3>
-          <p>Cisternas residenciais e comunitárias para armazenamento de água.</p>
+      </div>
+
+      <div class="testimonial-cta reveal" style="transition-delay:.24s">
+        <!-- TODO: adicionar link real do perfil do Google Meu Negócio -->
+        <a href="#" class="btn btn-outline" data-testid="google-reviews-link">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81Z"/></svg>
+          <span>Ver avaliações no Google</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="section section-alt" data-testid="about-section">
+    <div class="section-glow glow-left-bottom" aria-hidden="true"></div>
+    <div class="container about-solo">
+      <div class="about-copy">
+        <div class="reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Sobre a Máximo</p>
+          <h2 class="section-title">Compromisso com <span class="text-gradient-water">água limpa e segura</span></h2>
+          <p class="section-lead">A Máximo Limpeza &amp; Serviço nasceu do compromisso de oferecer higienização de caixas d'água com segurança, técnica e responsabilidade. Seguimos boas práticas de limpeza e desinfecção em cada etapa do serviço — do acesso ao reservatório até a entrega do laudo técnico — para que a água usada na sua casa, condomínio ou empresa esteja sempre própria para o consumo.</p>
+          <!-- TODO: revisar/ajustar texto institucional com o cliente -->
+          <p class="about-cnpj">CNPJ: <!-- TODO: preencher CNPJ -->[a preencher]</p>
         </div>
       </div>
     </div>
@@ -510,49 +707,46 @@
     </div>
   </section>
 
-  <section id="laudo-tecnico" class="section section-alt" data-testid="technical-report-section">
-    <div class="section-glow glow-left-bottom" aria-hidden="true"></div>
-    <div class="container about-grid">
-      <div class="about-visual reveal">
-        <span class="frame-offset" aria-hidden="true" style="border-radius:1.5rem"></span>
-        <div class="laudo-doc-mock glow-cyan">
-          <div class="laudo-doc-header">
-            <span class="laudo-doc-dot"></span>
-            <span class="laudo-doc-dot"></span>
-            <span class="laudo-doc-dot"></span>
-          </div>
-          <div class="laudo-doc-body">
-            <svg class="laudo-doc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            <span class="laudo-doc-line laudo-doc-line-title"></span>
-            <span class="laudo-doc-line"></span>
-            <span class="laudo-doc-line"></span>
-            <span class="laudo-doc-line laudo-doc-line-short"></span>
-            <span class="laudo-doc-seal" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></span>
-          </div>
-          <p class="laudo-doc-caption">Modelo ilustrativo de laudo técnico</p>
-          <!-- TODO: substituir por modelo real do laudo (imagem ou PDF de exemplo) -->
-        </div>
+  <section id="tipos-de-caixa" class="section section-alt" data-testid="tank-types-section">
+    <div class="section-glow glow-right" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-head-single reveal">
+        <p class="eyebrow"><span class="eyebrow-dot"></span>Tipos de caixa</p>
+        <h2 class="section-title">Tipos de caixa que <span class="text-gradient-water">atendemos</span></h2>
+        <p class="section-lead">Da caixa residencial de 500L ao grande reservatório de condomínio, cuidamos de todos os materiais e portes.</p>
       </div>
 
-      <div class="about-copy">
-        <div class="reveal">
-          <p class="eyebrow"><span class="eyebrow-dot"></span>Laudo técnico</p>
-          <h2 class="section-title">O que vem no seu <span class="text-gradient-water">laudo técnico</span></h2>
-          <p class="section-lead">Ao final de cada serviço, você recebe um laudo técnico com o registro completo da limpeza realizada — um documento que comprova a higienização para uso pessoal, do condomínio ou da empresa.</p>
-          <ul class="feature-list feature-list-col">
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Data e horário do serviço</li>
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Tipo e capacidade da caixa</li>
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Produtos utilizados</li>
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Responsável técnico</li>
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Fotos do antes/depois, quando aplicável</li>
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Validade recomendada até a próxima limpeza</li>
-          </ul>
+      <div class="tank-types-grid">
+        <div class="tank-type-card reveal" data-testid="tank-type-card-polietileno">
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="4"/><line x1="7" y1="10" x2="17" y2="10"/></svg></span>
+          <h3>Polietileno</h3>
+          <p>Caixas plásticas residenciais, leves e de fácil manutenção — de 500L a 5.000L.</p>
+        </div>
+        <div class="tank-type-card reveal" data-testid="tank-type-card-fibra" style="transition-delay:.06s">
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+          <h3>Fibra de vidro</h3>
+          <p>Reservatórios em fibra, comuns em condomínios e prédios comerciais.</p>
+        </div>
+        <div class="tank-type-card reveal" data-testid="tank-type-card-inox" style="transition-delay:.12s">
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 20.66 7v10L12 22 3.34 17V7L12 2z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <h3>Inox</h3>
+          <p>Caixas de aço inoxidável, com alta durabilidade e resistência.</p>
+        </div>
+        <div class="tank-type-card reveal" data-testid="tank-type-card-concreto" style="transition-delay:.18s">
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="9"/><line x1="15" y1="9" x2="15" y2="15"/><line x1="9" y1="15" x2="9" y2="21"/></svg></span>
+          <h3>Concreto / Alvenaria</h3>
+          <p>Reservatórios de concreto ou alvenaria, elevados ou enterrados, comuns em condomínios.</p>
+        </div>
+        <div class="tank-type-card reveal" data-testid="tank-type-card-cisternas" style="transition-delay:.24s">
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11c0-3.5 3.5-6 8-6s8 2.5 8 6v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7z"/><line x1="4" y1="11" x2="20" y2="11"/></svg></span>
+          <h3>Cisternas</h3>
+          <p>Cisternas residenciais e comunitárias para armazenamento de água.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="quando-limpar" class="section section-alt" data-testid="when-to-clean-section">
+  <section id="quando-limpar" class="section" data-testid="when-to-clean-section">
     <div class="section-glow glow-top-center" aria-hidden="true"></div>
     <div class="container when-grid">
       <div class="when-callout reveal">
@@ -574,72 +768,28 @@
     </div>
   </section>
 
-  <section id="area" class="section section-alt" data-testid="coverage-section">
-    <div class="section-glow glow-right-mid" aria-hidden="true"></div>
-    <div class="container coverage-grid">
-      <div class="coverage-visual reveal">
-        <span class="frame-offset" aria-hidden="true" style="border-radius:2rem"></span>
-        <div class="coverage-image glow-cyan">
-          <img class="img-grade" src="assets/images/coverage-fortaleza.jpg" width="1400" height="933" alt="Orla de Fortaleza, Ceará" loading="lazy">
-          <span class="img-tint" aria-hidden="true"></span>
-          <span class="corner-accent corner-accent-br" aria-hidden="true"></span>
-        </div>
-        <div class="floaty coverage-badge">
-          <span class="coverage-badge-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#070E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span>
-            <span class="coverage-badge-title">Fortaleza • CE</span>
-            <span class="coverage-badge-sub">e Região Metropolitana</span>
-          </span>
-        </div>
-      </div>
-
-      <div class="coverage-copy">
+  <section id="laudo-tecnico" class="section section-alt" data-testid="technical-report-section">
+    <div class="section-glow glow-left-bottom" aria-hidden="true"></div>
+    <div class="container about-solo">
+      <div class="about-copy">
         <div class="reveal">
-          <p class="eyebrow"><span class="eyebrow-dot"></span>Área de atuação</p>
-          <h2 class="section-title">Atendemos <span class="text-gradient-water">Fortaleza</span> e Região Metropolitana</h2>
-          <p class="section-lead">Nossa equipe vai até o seu imóvel — casa, condomínio ou empresa — em toda a capital cearense e nos principais municípios da Grande Fortaleza.</p>
-        </div>
-        <div class="reveal city-chip-row" style="transition-delay:.09s">
-          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Fortaleza</span>
-          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Caucaia</span>
-          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Maracanaú</span>
-          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Eusébio</span>
-          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Aquiraz</span>
-          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Itaitinga</span>
-          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Pacatuba</span>
-          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>São Gonçalo do Amarante</span>
-          <span class="city-chip city-chip-muted">+ toda a RMF</span>
-        </div>
-        <div class="reveal" style="transition-delay:.18s">
-          <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" class="btn btn-ghost-cyan js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="coverage-whatsapp-button">
-            <span>Meu bairro está na área? Chame no WhatsApp</span>
-            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Laudo técnico</p>
+          <h2 class="section-title">O que vem no seu <span class="text-gradient-water">laudo técnico</span></h2>
+          <p class="section-lead">Ao final de cada serviço, você recebe um laudo técnico com o registro completo da limpeza realizada — um documento que comprova a higienização para uso pessoal, do condomínio ou da empresa.</p>
+          <ul class="feature-list feature-list-col">
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Data e horário do serviço</li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Tipo e capacidade da caixa</li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Produtos utilizados</li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Responsável técnico</li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Fotos do antes/depois, quando aplicável</li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>Validade recomendada até a próxima limpeza</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="condominios-empresas" class="section" data-testid="condo-business-section">
-    <div class="container">
-      <div class="quote-panel condo-panel">
-        <div class="quote-glow quote-glow-a" aria-hidden="true"></div>
-        <div class="quote-glow quote-glow-b" aria-hidden="true"></div>
-        <div class="condo-panel-inner reveal">
-          <p class="eyebrow"><span class="eyebrow-dot"></span>Para condomínios e empresas</p>
-          <h2 class="section-title">Orçamento com <span class="text-gradient-water">vistoria no local</span></h2>
-          <p class="section-lead">Síndicos e gestores podem solicitar um orçamento com vistoria técnica presencial, sem compromisso, para dimensionar corretamente a limpeza do reservatório do condomínio ou empresa.</p>
-          <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20sou%20s%C3%ADndico%2Fgestor%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20vistoria%20para%20meu%20condom%C3%ADnio%2Fempresa" class="btn btn-orange btn-lg js-wa-link" data-wa-message="Olá, sou síndico/gestor e gostaria de solicitar um orçamento com vistoria para meu condomínio/empresa" target="_blank" rel="noopener noreferrer" data-testid="condo-whatsapp-button">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-            <span>Solicitar orçamento com vistoria</span>
-            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="antes-depois" class="section section-alt" data-testid="gallery-section">
+  <section id="antes-depois" class="section" data-testid="gallery-section">
     <div class="section-glow glow-right" aria-hidden="true"></div>
     <div class="container">
       <div class="section-head-single reveal">
@@ -693,57 +843,69 @@
     </div>
   </section>
 
-  <section id="depoimentos" class="section" data-testid="testimonials-section">
-    <div class="section-glow glow-top-center" aria-hidden="true"></div>
+  <section id="area" class="section section-alt" data-testid="coverage-section">
+    <div class="section-glow glow-right-mid" aria-hidden="true"></div>
+    <div class="container coverage-grid">
+      <div class="coverage-visual reveal">
+        <span class="frame-offset" aria-hidden="true" style="border-radius:2rem"></span>
+        <div class="coverage-image glow-cyan">
+          <img class="img-grade" src="assets/images/coverage-fortaleza.jpg" width="1400" height="933" alt="Orla de Fortaleza, Ceará" loading="lazy">
+          <span class="img-tint" aria-hidden="true"></span>
+          <span class="corner-accent corner-accent-br" aria-hidden="true"></span>
+        </div>
+        <div class="floaty coverage-badge">
+          <span class="coverage-badge-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#070E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span>
+            <span class="coverage-badge-title">Fortaleza • CE</span>
+            <span class="coverage-badge-sub">e Região Metropolitana</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="coverage-copy">
+        <div class="reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Área de atuação</p>
+          <h2 class="section-title">Atendemos <span class="text-gradient-water">Fortaleza</span> e Região Metropolitana</h2>
+          <p class="section-lead">Nossa equipe vai até o seu imóvel — casa, condomínio ou empresa — em toda a capital cearense e nos principais municípios da Grande Fortaleza.</p>
+        </div>
+        <div class="reveal city-chip-row" style="transition-delay:.09s">
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Fortaleza</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Caucaia</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Maracanaú</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Eusébio</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Aquiraz</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Itaitinga</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Pacatuba</span>
+          <span class="city-chip"><svg class="icon icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>São Gonçalo do Amarante</span>
+          <span class="city-chip city-chip-muted">+ toda a RMF</span>
+        </div>
+        <div class="reveal" style="transition-delay:.18s">
+          <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" class="btn btn-ghost-cyan js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="coverage-whatsapp-button">
+            <span>Meu bairro está na área? Chame no WhatsApp</span>
+            <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-strip-section" data-testid="cta-strip-section">
     <div class="container">
-      <div class="section-head-single reveal">
-        <p class="eyebrow"><span class="eyebrow-dot"></span>Depoimentos</p>
-        <h2 class="section-title">O que nossos <span class="text-orange">clientes dizem</span></h2>
-      </div>
-
-      <!-- TODO: substituir pelos 3 depoimentos reais de clientes (nome, texto, bairro) -->
-      <div class="testimonial-grid">
-        <div class="testimonial-card reveal" data-testid="testimonial-card-0">
-          <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 4C6 4 3.5 6.7 3.5 10.5c0 3.3 2 5.5 4.7 5.5.3 2.6-1.2 4.4-3.6 5l.6 1.5c4-.9 6.3-3.6 6.3-7.8V10.5C11.5 6.7 13 4 9.5 4Zm10 0c-3.5 0-6 2.7-6 6.5 0 3.3 2 5.5 4.7 5.5.3 2.6-1.2 4.4-3.6 5l.6 1.5c4-.9 6.3-3.6 6.3-7.8V10.5C21.5 6.7 23 4 19.5 4Z"/></svg>
-          <p class="testimonial-text">"[Depoimento a ser adicionado]"</p>
-          <div class="testimonial-footer">
-            <span class="testimonial-avatar" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></span>
-            <span>
-              <span class="testimonial-name">[Nome do cliente]</span>
-              <span class="testimonial-role">[Bairro/Cidade]</span>
-            </span>
-          </div>
+      <div class="cta-strip reveal">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-dot"></span>Seu reservatório merece cuidado</p>
+          <h2 class="section-title">Não espere a água mostrar <span class="text-orange">sinais de contaminação</span></h2>
         </div>
-        <div class="testimonial-card reveal" data-testid="testimonial-card-1" style="transition-delay:.09s">
-          <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 4C6 4 3.5 6.7 3.5 10.5c0 3.3 2 5.5 4.7 5.5.3 2.6-1.2 4.4-3.6 5l.6 1.5c4-.9 6.3-3.6 6.3-7.8V10.5C11.5 6.7 13 4 9.5 4Zm10 0c-3.5 0-6 2.7-6 6.5 0 3.3 2 5.5 4.7 5.5.3 2.6-1.2 4.4-3.6 5l.6 1.5c4-.9 6.3-3.6 6.3-7.8V10.5C21.5 6.7 23 4 19.5 4Z"/></svg>
-          <p class="testimonial-text">"[Depoimento a ser adicionado]"</p>
-          <div class="testimonial-footer">
-            <span class="testimonial-avatar" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></span>
-            <span>
-              <span class="testimonial-name">[Nome do cliente]</span>
-              <span class="testimonial-role">[Bairro/Cidade]</span>
-            </span>
-          </div>
+        <div class="cta-strip-actions">
+          <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20a%20limpeza%20da%20minha%20caixa%20d%27%C3%A1gua" class="btn btn-orange btn-lg js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="cta-strip-whatsapp-button">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            <span>Solicitar orçamento</span>
+          </a>
+          <a href="tel:+558521806701" class="btn btn-outline btn-lg" data-testid="cta-strip-phone-button">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.22a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Ligar agora</span>
+          </a>
         </div>
-        <div class="testimonial-card reveal" data-testid="testimonial-card-2" style="transition-delay:.18s">
-          <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 4C6 4 3.5 6.7 3.5 10.5c0 3.3 2 5.5 4.7 5.5.3 2.6-1.2 4.4-3.6 5l.6 1.5c4-.9 6.3-3.6 6.3-7.8V10.5C11.5 6.7 13 4 9.5 4Zm10 0c-3.5 0-6 2.7-6 6.5 0 3.3 2 5.5 4.7 5.5.3 2.6-1.2 4.4-3.6 5l.6 1.5c4-.9 6.3-3.6 6.3-7.8V10.5C21.5 6.7 23 4 19.5 4Z"/></svg>
-          <p class="testimonial-text">"[Depoimento a ser adicionado]"</p>
-          <div class="testimonial-footer">
-            <span class="testimonial-avatar" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></span>
-            <span>
-              <span class="testimonial-name">[Nome do cliente]</span>
-              <span class="testimonial-role">[Bairro/Cidade]</span>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-cta reveal" style="transition-delay:.24s">
-        <!-- TODO: adicionar link real do perfil do Google Meu Negócio -->
-        <a href="#" class="btn btn-outline" data-testid="google-reviews-link">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81Z"/></svg>
-          <span>Ver avaliações no Google</span>
-        </a>
       </div>
     </div>
   </section>
@@ -799,7 +961,7 @@
           <div>
             <div class="reveal">
               <p class="eyebrow"><span class="eyebrow-dot"></span>Orçamento sem compromisso</p>
-              <h2 class="section-title">Solicite seu orçamento <span class="text-orange">agora</span></h2>
+              <h2 class="section-title">Solicite sua <span class="text-orange">limpeza</span></h2>
               <p class="section-lead">Preencha o formulário e continue a conversa direto no nosso WhatsApp — responderemos com sua proposta.</p>
             </div>
             <div class="contact-list reveal" style="transition-delay:.09s">
@@ -816,6 +978,16 @@
                 <span class="contact-text"><span class="contact-label">E-mail</span><span class="contact-value">comercialmaximols@outlook.com</span></span>
               </a>
             </div>
+            <div class="contact-social reveal" style="transition-delay:.12s">
+              <a href="https://www.instagram.com/limpezaeservicosmaximo" class="btn btn-instagram" target="_blank" rel="noopener noreferrer" data-testid="quote-instagram-button">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+                <span>Siga no Instagram</span>
+              </a>
+              <a href="https://www.facebook.com/limpezaeservicosmaximo" class="btn btn-facebook" target="_blank" rel="noopener noreferrer" data-testid="quote-facebook-button">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.62 23.1 24 18.1 24 12.07Z"/></svg>
+                <span>Curta no Facebook</span>
+              </a>
+            </div>
           </div>
 
           <div class="reveal" style="transition-delay:.18s">
@@ -829,6 +1001,19 @@
               <div class="form-field">
                 <label for="telefone">Telefone / WhatsApp</label>
                 <input id="telefone" name="telefone" type="tel" required placeholder="(85) 90000-0000" pattern="\(\d{2}\) \d{5}-\d{4}" maxlength="15" inputmode="numeric" data-testid="quote-form-phone-input">
+              </div>
+              <div class="form-field">
+                <label for="servico">Serviço</label>
+                <div class="select-wrap">
+                  <select id="servico" name="servico" data-testid="quote-form-service-select">
+                    <option>Limpeza de caixa d'água</option>
+                    <option>Limpeza de cisternas e reservatórios</option>
+                    <option>Impermeabilização</option>
+                    <option>Hidrojateamento</option>
+                    <option>Outro</option>
+                  </select>
+                  <svg class="icon icon-sm select-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
               </div>
               <div class="form-field">
                 <label for="endereco">Endereço (bairro / referência)</label>
@@ -863,35 +1048,19 @@
       </div>
     </div>
   </section>
-
 </main>
 
 <footer class="site-footer" data-testid="site-footer">
   <div class="container footer-grid">
     <div>
       <a href="#inicio" class="logo logo-footer">
-        <svg viewBox="0 0 40 40" class="logo-mark logo-mark-lg" aria-hidden="true">
-          <defs>
-            <linearGradient id="drop-footer" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#6cd4ff"/>
-              <stop offset="55%" stop-color="#2ca8e0"/>
-              <stop offset="100%" stop-color="#1a2b6d"/>
-            </linearGradient>
-          </defs>
-          <path d="M20 3C20 3 8 17.5 8 25a12 12 0 0 0 24 0C32 17.5 20 3 20 3Z" fill="url(#drop-footer)"/>
-          <path d="M14.5 24.5a5.5 5.5 0 0 0 4.2 6.6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.85"/>
-        </svg>
-        <span class="logo-text">
-          <span class="logo-name">MÁXIMO</span>
-          <span class="logo-sub">Limpeza &amp; Serviço</span>
-        </span>
+        <img src="assets/images/logo-maximo.png" width="640" height="210" alt="Máximo Limpeza &amp; Serviço" class="logo-img" loading="lazy">
       </a>
       <p class="footer-tagline">Limpeza de caixa d'água com compromisso, qualidade e total segurança. Fortaleza e Região Metropolitana.</p>
       <div class="social-row">
-        <!-- TODO: preencher link do Instagram -->
-        <a href="#" class="social-btn is-placeholder" aria-label="Instagram (em breve)" aria-disabled="true" tabindex="-1" data-testid="footer-instagram-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <!-- TODO: preencher link do Facebook -->
-        <a href="#" class="social-btn is-placeholder" aria-label="Facebook (em breve)" aria-disabled="true" tabindex="-1" data-testid="footer-facebook-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/limpezaeservicosmaximo" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-testid="footer-instagram-link"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="https://www.facebook.com/limpezaeservicosmaximo" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook" data-testid="footer-facebook-link"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.62 23.1 24 18.1 24 12.07Z"/></svg></a>
+        <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" class="social-btn js-wa-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-testid="footer-whatsapp-social-link"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
       </div>
     </div>
 
@@ -900,7 +1069,10 @@
       <ul class="footer-links">
         <li><a href="#inicio" data-testid="footer-link-inicio">Início</a></li>
         <li><a href="#servicos" data-testid="footer-link-servicos">Serviços</a></li>
-        <li><a href="#sobre" data-testid="footer-link-sobre">Sobre</a></li>
+        <li><a href="#segmentos" data-testid="footer-link-segmentos">Segmentos</a></li>
+        <li><a href="#corporativo" data-testid="footer-link-corporativo">Corporativo</a></li>
+        <li><a href="#diferenciais" data-testid="footer-link-diferenciais">Diferenciais</a></li>
+        <li><a href="#clientes" data-testid="footer-link-clientes">Clientes</a></li>
         <li><a href="#contato" data-testid="footer-link-contato">Contato</a></li>
       </ul>
     </div>
@@ -908,8 +1080,8 @@
     <div>
       <h3 class="footer-heading">Contato</h3>
       <ul class="footer-links">
-        <li><a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" class="js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="footer-whatsapp-link"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>(85) 98607-5663</a></li>
         <li><a href="tel:+558521806701" data-testid="footer-phone-link"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.22a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>(85) 2180-6701</a></li>
+        <li><a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" class="js-wa-link" target="_blank" rel="noopener noreferrer" data-testid="footer-whatsapp-link"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>(85) 98607-5663</a></li>
         <li><a href="mailto:comercialmaximols@outlook.com" data-testid="footer-email-link"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 6 12 13 22 6"/></svg>comercialmaximols@outlook.com</a></li>
       </ul>
     </div>
@@ -920,6 +1092,10 @@
     <p>Limpeza de Caixa D'Água • Fortaleza-CE</p>
   </div>
 </footer>
+
+<a href="https://www.instagram.com/limpezaeservicosmaximo" class="floating-ig" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-testid="floating-instagram-button">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+</a>
 
 <a href="https://wa.me/5585986075663?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20caixa%20d%27%C3%A1gua" class="floating-wa js-wa-link" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" data-testid="floating-whatsapp-trigger">
   <span class="floating-wa-ping" aria-hidden="true"></span>
