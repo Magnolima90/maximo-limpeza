@@ -162,6 +162,54 @@
   }
 
   /* ---------------------------------------------------------------------
+     Números (stats) count-up animation: animates every .stat-value with a
+     data-count-to attribute from 0 to that target once the #numeros section
+     scrolls into view. Vanilla JS (IntersectionObserver + rAF), runs once,
+     ~1.2s duration. The placeholder "—" stat card has no data-count-to and
+     is left untouched by this code.
+     --------------------------------------------------------------------- */
+  var statEls = document.querySelectorAll(".stat-value[data-count-to]");
+  if (statEls.length) {
+    var statsAnimated = false;
+    var animateStats = function () {
+      if (statsAnimated) return;
+      statsAnimated = true;
+      statEls.forEach(function (el) {
+        var target = parseInt(el.getAttribute("data-count-to"), 10) || 0;
+        var suffix = el.getAttribute("data-suffix") || "";
+        var duration = 1200;
+        var start = null;
+        function step(timestamp) {
+          if (start === null) start = timestamp;
+          var progress = Math.min((timestamp - start) / duration, 1);
+          el.textContent = Math.round(progress * target) + suffix;
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        }
+        window.requestAnimationFrame(step);
+      });
+    };
+    var statsSection = document.getElementById("numeros");
+    if (statsSection && "IntersectionObserver" in window) {
+      var statsIo = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              animateStats();
+              statsIo.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      statsIo.observe(statsSection);
+    } else {
+      animateStats();
+    }
+  }
+
+  /* ---------------------------------------------------------------------
      Phone mask for the quote form: formats as (85) 9XXXX-XXXX while the
      user types, stripping anything that isn't a digit first.
      --------------------------------------------------------------------- */

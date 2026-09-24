@@ -1,9 +1,16 @@
 /* ==========================================================================
-   Máximo Limpeza & Serviço — design tokens extracted from the reference
-   React build (colors, fonts, radii match the original Tailwind config).
+   Máximo Limpeza & Serviço — design tokens.
+
+   Redesign Stage A (light/corporate blue-and-white system, inspired by a
+   reference site): the tokens below marked "legacy" are kept ONLY because
+   several sections have not been restyled yet (Stage B will handle them —
+   see the list of untouched sections in the project notes) and still
+   reference them directly. Do not use the legacy navy/cyan tokens in new
+   work — use the light-system tokens instead.
    ========================================================================== */
 
 :root {
+  /* --- legacy dark tokens: still used by sections not yet restyled --- */
   --navy-deep: #070E24;
   --navy-dark: #0B1536;
   --navy-ink: #05091C;
@@ -11,8 +18,6 @@
   --navy: #1A2B6D;
   --cyan: #2CA8E0;
   --cyan-light: #6CD4FF;
-  --orange: #F5821F;
-  --orange-dark: #E06F0E;
 
   --slate-200: #E2E8F0;
   --slate-300: #CBD5E1;
@@ -20,9 +25,24 @@
   --slate-500: #778599; /* lightened from #64748B for WCAG AA text contrast (see stage 3 report) */
   --slate-600: #475569;
 
-  --font-display: "Outfit", sans-serif;
-  --font-body: "Plus Jakarta Sans", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  /* --- shared accent: kept as a SECONDARY accent only (badges, pills) --- */
+  --orange: #F5821F;
+  --orange-dark: #E06F0E;
+  --brandorange: #F5821F;
+
+  /* --- new light/corporate design system (Redesign Stage A) --- */
+  --blue: #116DFF;
+  --blue-dark: #0D77CE;
+  --teal-navy: #2B5672;
+  --ink: #1F2937;
+  --muted: #5B6472;
+  --bg: #FFFFFF;
+  --bg-alt: #F4F7FB;
+  --border: #E2E6EC;
+
+  --font-display: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "Poppins", sans-serif;
 
   --container-max: 1280px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -44,7 +64,7 @@ body {
   overflow-x: clip;
 }
 
-::selection { background: var(--orange); color: var(--navy-deep); }
+::selection { background: var(--blue); color: #fff; }
 
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--navy-deep); }
@@ -82,6 +102,17 @@ input, select { font: inherit; }
   color: transparent;
 }
 .text-orange { color: var(--orange); }
+
+/* Redesign Stage A: emphasis treatment for headings sitting on the new
+   light backgrounds (services, segments, stats) — text-gradient-water above
+   is tuned for dark backgrounds and stays untouched for the sections that
+   still use it. */
+.text-accent {
+  background: linear-gradient(100deg, var(--blue) 0%, var(--teal-navy) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
 .eyebrow {
   display: inline-flex;
@@ -144,12 +175,17 @@ input, select { font: inherit; }
 .btn:active { transform: scale(0.96); }
 .btn-lg { padding: 16px 32px; font-size: 1rem; }
 .btn-block { width: 100%; }
+/* Redesign Stage A: the class name stays "btn-orange" (every button using it
+   is a WhatsApp/quote action, and renaming would mean touching markup across
+   sections not in scope this stage) but the dominant CTA color is now the
+   new brand blue, per the redesign brief — orange remains only as a
+   secondary accent (small badges/pills) elsewhere on the page. */
 .btn-orange {
-  background: var(--orange);
-  color: var(--navy-deep);
-  box-shadow: 0 0 30px rgba(245, 130, 31, 0.35);
+  background: var(--blue);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(17, 109, 255, 0.28);
 }
-.btn-orange:hover { background: var(--orange-dark); box-shadow: 0 0 44px rgba(245, 130, 31, 0.55); }
+.btn-orange:hover { background: var(--blue-dark); box-shadow: 0 10px 30px rgba(13, 119, 206, 0.35); }
 .btn-outline {
   background: transparent;
   color: #fff;
@@ -175,11 +211,16 @@ input, select { font: inherit; }
   z-index: 50;
   border-bottom: 1px solid transparent;
   background: transparent;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
+/* Redesign Stage A: transparent over the hero photo (so it blends with the
+   dark overlay + white hero copy), then a clean white corporate header with
+   a subtle shadow once scrolled — reusing the existing .is-scrolled class
+   already toggled by script.js. */
 .site-header.is-scrolled {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(7, 14, 36, 0.85);
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 4px 24px rgba(31, 41, 55, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -205,6 +246,7 @@ input, select { font: inherit; }
   font-weight: 900;
   letter-spacing: 0.08em;
   color: #fff;
+  transition: color 0.3s ease;
 }
 .logo-sub {
   margin-top: 4px;
@@ -214,6 +256,8 @@ input, select { font: inherit; }
   letter-spacing: 0.3em;
   color: var(--cyan-light);
 }
+.site-header.is-scrolled .logo-name { color: var(--ink); }
+.site-header.is-scrolled .logo-sub { color: var(--blue); }
 
 .main-nav { display: none; align-items: center; gap: 32px; }
 .main-nav a {
@@ -236,6 +280,9 @@ input, select { font: inherit; }
   transition: width 0.3s;
 }
 .main-nav a:hover::after { width: 100%; }
+.site-header.is-scrolled .main-nav a { color: var(--ink); }
+.site-header.is-scrolled .main-nav a:hover { color: var(--blue); }
+.site-header.is-scrolled .main-nav a::after { background: var(--blue); }
 
 .header-actions { display: flex; align-items: center; gap: 12px; }
 .header-cta { display: none; }
@@ -250,7 +297,9 @@ input, select { font: inherit; }
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: transparent;
   color: #fff;
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
+.site-header.is-scrolled .menu-toggle { color: var(--ink); border-color: var(--border); }
 
 .mobile-nav {
   display: flex;
@@ -260,13 +309,13 @@ input, select { font: inherit; }
   max-height: 0;
   overflow: hidden;
   border-bottom: 1px solid transparent;
-  background: rgba(7, 14, 36, 0.97);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(20px);
   transition: max-height 0.35s var(--ease), border-color 0.3s;
 }
 .mobile-nav.is-open {
   max-height: 500px;
-  border-bottom-color: rgba(255, 255, 255, 0.1);
+  border-bottom-color: var(--border);
 }
 .mobile-nav a {
   padding: 14px 16px;
@@ -274,9 +323,9 @@ input, select { font: inherit; }
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
 }
-.mobile-nav a:hover { background: rgba(255, 255, 255, 0.05); color: var(--cyan-light); }
+.mobile-nav a:hover { background: var(--bg-alt); color: var(--blue); }
 .mobile-cta {
   margin-top: 10px;
   width: 100%;
@@ -302,18 +351,24 @@ input, select { font: inherit; }
   min-height: 100vh;
   min-height: 100svh;
   overflow: hidden;
-  background: var(--navy-deep);
+  background: var(--teal-navy);
 }
 .hero-bg {
   position: absolute;
   inset: 0;
   transform: scale(1.1);
 }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
+/* Redesign Stage A: the hero keeps the full-bleed photo treatment (closest
+   to the reference site's banner hero) but the overlay now uses the new
+   --ink/--teal-navy palette instead of the old --navy-deep, so it still
+   reads as part of the light/corporate system rather than a leftover of
+   the dark theme. It stays dark enough for the white headline + trust
+   badges to remain legible. */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(7,14,36,0.85), rgba(7,14,36,0.7) 45%, var(--navy-deep));
+  background: linear-gradient(to bottom, rgba(31,41,55,0.82), rgba(43,86,114,0.55) 45%, rgba(31,41,55,0.88));
 }
 .hero-glow {
   position: absolute;
@@ -323,13 +378,13 @@ input, select { font: inherit; }
 .hero-glow-cyan {
   left: -160px; top: 25%;
   width: 480px; height: 480px;
-  background: rgba(44,168,224,0.2);
+  background: rgba(17,109,255,0.22);
   filter: blur(140px);
 }
 .hero-glow-navy {
   right: -128px; bottom: 0;
   width: 420px; height: 420px;
-  background: rgba(26,43,109,0.6);
+  background: rgba(43,86,114,0.55);
   filter: blur(120px);
 }
 .hero-inner {
@@ -356,13 +411,13 @@ input, select { font: inherit; }
   margin-bottom: 28px;
   padding: 8px 16px;
   border-radius: 9999px;
-  border: 1px solid rgba(44,168,224,0.3);
-  background: rgba(44,168,224,0.1);
+  border: 1px solid rgba(17,109,255,0.35);
+  background: rgba(17,109,255,0.14);
   backdrop-filter: blur(4px);
 }
 .pulse-dot {
   width: 8px; height: 8px; border-radius: 50%;
-  background: var(--cyan-light);
+  background: #fff;
   animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite;
 }
 .badge-pill span:last-child {
@@ -371,7 +426,7 @@ input, select { font: inherit; }
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.22em;
-  color: var(--cyan-light);
+  color: #fff;
 }
 @keyframes pulse { 50% { opacity: 0.5; } }
 
@@ -662,6 +717,176 @@ input, select { font: inherit; }
 .service-card-soon p { margin-top: 8px; font-size: 0.875rem; color: var(--slate-500); }
 
 /* ==========================================================================
+   Redesign Stage A — Services (light card grid, 4-up row matching the
+   reference site). #servicos/#segmentos/#numeros are ID-scoped overrides so
+   the shared .section / .section-head / .eyebrow / .section-lead classes
+   used by sections not yet restyled (Stage B) keep their original dark
+   styling untouched.
+   ========================================================================== */
+#servicos, #segmentos, #numeros { background: var(--bg); color: var(--ink); }
+#servicos .eyebrow, #segmentos .eyebrow, #numeros .eyebrow { color: var(--blue); }
+#servicos .section-title, #segmentos .section-title { color: var(--ink); }
+#servicos .section-lead, #segmentos .section-lead { color: var(--muted); }
+
+.services-grid-v2 {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .services-grid-v2 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .services-grid-v2 { grid-template-columns: repeat(4, 1fr); } }
+
+.service-card-v2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 1.25rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  box-shadow: 0 8px 24px rgba(31, 41, 55, 0.06);
+  padding: 28px;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.service-card-v2:hover {
+  transform: translateY(-4px);
+  border-color: rgba(17, 109, 255, 0.35);
+  box-shadow: 0 16px 36px rgba(31, 41, 55, 0.1);
+}
+.service-card-v2-featured { border-color: rgba(17, 109, 255, 0.3); background: var(--bg-alt); }
+.service-card-v2-badge {
+  align-self: flex-start;
+  margin-bottom: 16px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.service-card-v2-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+  border-radius: 1rem;
+  background: rgba(17, 109, 255, 0.1);
+  color: var(--blue);
+}
+.service-card-v2-icon .icon { width: 28px; height: 28px; }
+.service-card-v2 h3 { font-size: 1.125rem; font-weight: 700; color: var(--ink); }
+.service-card-v2 > p { margin-top: 10px; font-size: 0.9rem; line-height: 1.6; color: var(--muted); }
+.service-card-v2-features { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+.service-card-v2-features li { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 500; color: var(--ink); }
+.service-card-v2-features .icon { color: var(--blue); }
+.service-card-v2-cta {
+  margin-top: auto;
+  padding-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--blue);
+  transition: color 0.3s;
+}
+.service-card-v2:hover .service-card-v2-cta { color: var(--blue-dark); }
+/* the featured card sits on --bg-alt, where --blue text measures ~4.2:1
+   (under AA 4.5:1) — other (white) cards keep --blue above. */
+.service-card-v2-featured .service-card-v2-cta { color: var(--teal-navy); }
+.service-card-v2-featured:hover .service-card-v2-cta { color: var(--blue-dark); }
+.pill-outline-v2 {
+  align-self: flex-start;
+  margin-bottom: 16px;
+  color: var(--muted);
+  border-color: var(--border);
+  background: var(--bg-alt);
+}
+
+/* ==========================================================================
+   Redesign Stage A — Segmentos atendidos (new section)
+   ========================================================================== */
+.segments-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .segments-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .segments-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.segment-card {
+  height: 100%;
+  border-radius: 1.25rem;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  padding: 28px;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.segment-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(31, 41, 55, 0.08); }
+.segment-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--blue);
+}
+.segment-card-icon .icon { width: 24px; height: 24px; }
+.segment-card h3 { margin-top: 18px; font-size: 1.05rem; font-weight: 700; color: var(--ink); }
+.segment-card p { margin-top: 8px; font-size: 0.875rem; line-height: 1.6; color: var(--muted); }
+
+/* ==========================================================================
+   Redesign Stage A — Números (stats, new section)
+   ========================================================================== */
+#numeros { background: var(--bg-alt); padding-top: 64px; padding-bottom: 64px; }
+@media (min-width: 1024px) { #numeros { padding-top: 80px; padding-bottom: 80px; } }
+.stats-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+.stat-card {
+  text-align: center;
+  padding: 24px 12px;
+  border-radius: 1.25rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--blue);
+}
+@media (min-width: 640px) { .stat-value { font-size: 3rem; } }
+.stat-card-placeholder .stat-value { color: var(--muted); }
+.stat-label {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+@media (min-width: 640px) { .stat-label { font-size: 0.875rem; } }
+
+/* ==========================================================================
    Sobre a Máximo
    ========================================================================== */
 .about-grid {
@@ -783,31 +1008,57 @@ input, select { font: inherit; }
 @media (min-width: 768px) { .diff-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1280px) { .diff-grid { grid-template-columns: repeat(4, 1fr); } }
 
+/* Redesign Stage A: #diferenciais moves to the new light card system
+   (--bg-alt section, white cards) — .diff-card/.diff-num/.icon-badge here
+   are exclusive to this section, so they're safe to restyle directly. */
+#diferenciais { background: var(--bg-alt); color: var(--ink); }
+/* text sitting directly on --bg-alt: --blue measures ~4.2:1 here, under the
+   4.5:1 AA threshold, so this label uses the darker --teal-navy instead. */
+#diferenciais .eyebrow { color: var(--teal-navy); }
+#diferenciais .section-title { color: var(--ink); }
+
 .diff-card {
   position: relative;
   overflow: hidden;
   height: 100%;
   border-radius: 1.5rem;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  box-shadow: 0 8px 24px rgba(31, 41, 55, 0.06);
   padding: 28px;
-  transition: all 0.5s;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
 }
-.diff-card:hover { transform: translateY(-6px); border-color: rgba(44,168,224,0.5); box-shadow: 0 24px 60px rgba(44,168,224,0.15); }
+.diff-card:hover { transform: translateY(-6px); border-color: rgba(17,109,255,0.35); box-shadow: 0 16px 36px rgba(31,41,55,0.1); }
+/* the old giant translucent "01/02/03/04" numbers clashed with the lighter
+   aesthetic — restyled as a small rounded badge instead of removed outright,
+   per the redesign brief. */
 .diff-num {
-  position: absolute; right: -8px; top: -16px;
+  position: absolute; right: 20px; top: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
   font-family: var(--font-display);
-  font-size: 5.5rem;
-  font-weight: 900;
+  font-size: 0.7rem;
+  font-weight: 700;
   line-height: 1;
-  color: rgba(255,255,255,0.05);
-  transition: color 0.5s;
+  color: var(--teal-navy); /* --blue on this --bg-alt badge measured ~4.2:1, under AA */
+  transition: background 0.3s, color 0.3s;
 }
-.diff-card:hover .diff-num { color: rgba(44,168,224,0.1); }
-.diff-card .icon-badge { width: 56px; height: 56px; position: relative; }
+.diff-card:hover .diff-num { background: var(--blue); color: #fff; border-color: var(--blue); }
+#diferenciais .icon-badge {
+  width: 56px; height: 56px; position: relative;
+  border: none;
+  background: rgba(17,109,255,0.1);
+  color: var(--blue);
+}
 .diff-card .icon-badge .icon { width: 28px; height: 28px; }
-.diff-card h3 { position: relative; margin-top: 56px; font-size: 1.25rem; font-weight: 700; }
-.diff-card p { position: relative; margin-top: 12px; font-size: 0.9rem; line-height: 1.6; color: var(--slate-400); }
+.diff-card h3 { position: relative; margin-top: 24px; font-size: 1.25rem; font-weight: 700; color: var(--ink); }
+.diff-card p { position: relative; margin-top: 12px; font-size: 0.9rem; line-height: 1.6; color: var(--muted); }
 
 /* ==========================================================================
    Timeline
