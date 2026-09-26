@@ -4,11 +4,6 @@
   var WHATSAPP_NUMBER = "5585986075663";
   var DEFAULT_MESSAGE = "Olá, gostaria de um orçamento para limpeza de caixa d'água";
 
-  /* Troque por uma URL real (perfil do Google Meu Negócio) para exibir o
-     link "Ver avaliações no Google" nos depoimentos. Enquanto estiver vazia,
-     o link fica oculto. */
-  var GOOGLE_REVIEWS_URL = "";
-
   function waLink(message) {
     return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message || DEFAULT_MESSAGE);
   }
@@ -38,19 +33,6 @@
       trackEvent("whatsapp_click", { link_location: getLinkLocation(el) });
     });
   });
-
-  /* ---------------------------------------------------------------------
-     Google reviews link: hidden unless GOOGLE_REVIEWS_URL is filled in.
-     --------------------------------------------------------------------- */
-  var reviewsLink = document.querySelector(".js-google-reviews");
-  if (reviewsLink) {
-    if (GOOGLE_REVIEWS_URL) {
-      reviewsLink.setAttribute("href", GOOGLE_REVIEWS_URL);
-      reviewsLink.hidden = false;
-    } else {
-      reviewsLink.hidden = true;
-    }
-  }
 
   /* ---------------------------------------------------------------------
      Trust marquee (orange->água strip under the hero)
