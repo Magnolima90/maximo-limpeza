@@ -4,14 +4,15 @@
   var WHATSAPP_NUMBER = "5585986075663";
   var DEFAULT_MESSAGE = "Olá, gostaria de um orçamento para limpeza de caixa d'água";
 
+  /* Troque por uma URL real (perfil do Google Meu Negócio) para exibir o
+     link "Ver avaliações no Google" nos depoimentos. Enquanto estiver vazia,
+     o link fica oculto. */
+  var GOOGLE_REVIEWS_URL = "";
+
   function waLink(message) {
     return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message || DEFAULT_MESSAGE);
   }
 
-  /* ---------------------------------------------------------------------
-     Analytics (GA4) helpers — every call is guarded so nothing errors or
-     does anything when the user hasn't consented (gtag not loaded yet).
-     --------------------------------------------------------------------- */
   function trackEvent(name, params) {
     if (typeof gtag === "function") {
       gtag("event", name, params || {});
@@ -21,7 +22,6 @@
   function getLinkLocation(el) {
     if (!el || !el.closest) return "unknown";
     if (el.closest(".floating-wa")) return "floating";
-    if (el.closest(".show-me")) return "mostre-me";
     if (el.closest(".mobile-nav")) return "mobile_menu";
     if (el.closest(".site-header")) return "header";
     if (el.closest(".site-footer")) return "footer";
@@ -30,13 +30,6 @@
     return "unknown";
   }
 
-  /* ---------------------------------------------------------------------
-     Populate every WhatsApp link on the page. The href is already correct
-     in the raw HTML (see index.html) — this just keeps it in sync and
-     supports a per-element custom message via data-wa-message (used by
-     the "Sob consulta" service cards and the condomínios/empresas CTA).
-     Re-running this is harmless/idempotent.
-     --------------------------------------------------------------------- */
   var defaultHref = waLink();
   document.querySelectorAll(".js-wa-link").forEach(function (el) {
     var customMessage = el.getAttribute("data-wa-message");
@@ -47,8 +40,20 @@
   });
 
   /* ---------------------------------------------------------------------
-     Trust marquee: build the two duplicated rows from the same list used
-     on the reference site so the loop is seamless.
+     Google reviews link: hidden unless GOOGLE_REVIEWS_URL is filled in.
+     --------------------------------------------------------------------- */
+  var reviewsLink = document.querySelector(".js-google-reviews");
+  if (reviewsLink) {
+    if (GOOGLE_REVIEWS_URL) {
+      reviewsLink.setAttribute("href", GOOGLE_REVIEWS_URL);
+      reviewsLink.hidden = false;
+    } else {
+      reviewsLink.hidden = true;
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+     Trust marquee (orange->água strip under the hero)
      --------------------------------------------------------------------- */
   var MARQUEE_ITEMS = [
     "Limpeza de Caixa D'Água",
@@ -61,11 +66,11 @@
   ];
   var dropletSvg =
     '<svg class="mq-dot" viewBox="0 0 40 40" aria-hidden="true">' +
-    '<path d="M20 3C20 3 8 17.5 8 25a12 12 0 0 0 24 0C32 17.5 20 3 20 3Z" fill="#2ca8e0"/>' +
-    '<path d="M14.5 24.5a5.5 5.5 0 0 0 4.2 6.6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.85"/>' +
+    '<path d="M20 3C20 3 8 17.5 8 25a12 12 0 0 0 24 0C32 17.5 20 3 20 3Z" fill="#fff" fill-opacity="0.9"/>' +
+    '<path d="M14.5 24.5a5.5 5.5 0 0 0 4.2 6.6" stroke="#0EA5E9" stroke-width="2.4" stroke-linecap="round" fill="none" opacity="0.9"/>' +
     "</svg>";
 
-  function buildMarqueeRow(hidden) {
+  function buildMarqueeRow() {
     return MARQUEE_ITEMS.map(function (item) {
       return '<span class="mq-item">' + item + dropletSvg + "</span>";
     }).join("");
@@ -141,8 +146,7 @@
   });
 
   /* ---------------------------------------------------------------------
-     Scroll reveal (IntersectionObserver) — approximates the framer-motion
-     fade/slide-up used on the reference site.
+     Scroll reveal (IntersectionObserver) — fade-up on scroll
      --------------------------------------------------------------------- */
   var revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
@@ -163,11 +167,7 @@
   }
 
   /* ---------------------------------------------------------------------
-     Números (stats) count-up animation: animates every .stat-value with a
-     data-count-to attribute from 0 to that target once the #numeros section
-     scrolls into view. Vanilla JS (IntersectionObserver + rAF), runs once,
-     ~1.2s duration. The placeholder "—" stat card has no data-count-to and
-     is left untouched by this code.
+     Números (stats) count-up animation
      --------------------------------------------------------------------- */
   var statEls = document.querySelectorAll(".stat-value[data-count-to]");
   if (statEls.length) {
@@ -211,8 +211,7 @@
   }
 
   /* ---------------------------------------------------------------------
-     Phone mask for the quote form: formats as (85) 9XXXX-XXXX while the
-     user types, stripping anything that isn't a digit first.
+     Phone mask for the quote form
      --------------------------------------------------------------------- */
   var telefoneInput = document.getElementById("telefone");
   function maskPhone(value) {
@@ -262,10 +261,6 @@
         "\nTipo de imóvel: " + tipo;
       if (capacidade) msg += "\nQuantidade/capacidade das caixas: " + capacidade;
 
-      /* Fire-and-forget: send the lead to our serverless capture endpoint in
-         parallel. This must NEVER block or delay the WhatsApp redirect below,
-         which is the primary, always-working path — so no await, and any
-         failure (network, 429, 500, endpoint missing) is silently ignored. */
       try {
         fetch("/api/lead", {
           method: "POST",
@@ -289,75 +284,6 @@
   }
 
   /* ---------------------------------------------------------------------
-     "Mostre-me como!" mini form -> opens WhatsApp with the visitor's name
-     --------------------------------------------------------------------- */
-  var miniForm = document.querySelector(".js-mini-form");
-  if (miniForm) {
-    miniForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var nome = (miniForm.nome && miniForm.nome.value.trim()) || "";
-      var msg = "Olá, meu nome é " + nome + ". Quero saber como manter a água da minha caixa d'água limpa e segura.";
-      trackEvent("form_submit", { form_id: "show-me-form", link_location: "mostre-me" });
-      window.open(waLink(msg), "_blank", "noopener");
-    });
-  }
-
-  /* ---------------------------------------------------------------------
-     Antes/depois gallery lightbox (vanilla JS, no dependencies). Clicking a
-     gallery-shot opens a fixed overlay with the larger image; closes on the
-     close button, click-outside (backdrop) or Escape.
-     --------------------------------------------------------------------- */
-  var lightbox = document.getElementById("lightbox");
-  var lightboxImg = document.getElementById("lightbox-img");
-  var lightboxCaption = document.getElementById("lightbox-caption");
-  var lightboxCloseBtn = document.getElementById("lightbox-close-btn");
-  var lightboxLastFocused = null;
-
-  function openLightbox(imgSrc, caption) {
-    if (!lightbox || !lightboxImg) return;
-    lightboxLastFocused = document.activeElement;
-    lightboxImg.src = imgSrc;
-    lightboxImg.alt = caption || "";
-    if (lightboxCaption) lightboxCaption.textContent = caption || "";
-    lightbox.hidden = false;
-    document.body.style.overflow = "hidden";
-    if (lightboxCloseBtn) lightboxCloseBtn.focus();
-  }
-
-  function closeLightbox() {
-    if (!lightbox || lightbox.hidden) return;
-    lightbox.hidden = true;
-    document.body.style.overflow = "";
-    if (lightboxLastFocused && lightboxLastFocused.focus) lightboxLastFocused.focus();
-  }
-
-  document.querySelectorAll(".js-gallery-item").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var img = btn.querySelector("img");
-      var caption = btn.getAttribute("data-caption") || "";
-      if (img) openLightbox(img.src, caption);
-    });
-  });
-
-  document.querySelectorAll(".js-lightbox-close").forEach(function (el) {
-    el.addEventListener("click", closeLightbox);
-  });
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closeLightbox();
-      return;
-    }
-    /* Focus trap: while the lightbox is open, the close button is the only
-       focusable element inside it, so keep Tab/Shift+Tab from leaking focus
-       to elements behind the overlay. */
-    if (e.key === "Tab" && lightbox && !lightbox.hidden) {
-      e.preventDefault();
-      if (lightboxCloseBtn) lightboxCloseBtn.focus();
-    }
-  });
-
-  /* ---------------------------------------------------------------------
      FAQ accordion: native <details>/<summary> already toggles on click;
      this only adds the "close the others" behavior when one item opens.
      --------------------------------------------------------------------- */
@@ -379,12 +305,7 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------------------------------------------------------------------
-     Cookie / GA4 consent banner. Decision is remembered in localStorage
-     ("maximo_consent": "accepted" | "declined") so the banner is shown at
-     most once per browser. GA4's gtag.js is only ever injected after an
-     explicit "Aceitar" click (or immediately, on a later page load, if the
-     user had already accepted before) — never eagerly, and never at all if
-     declined.
+     Cookie / GA4 consent banner
      --------------------------------------------------------------------- */
   var CONSENT_KEY = "maximo_consent";
 
