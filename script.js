@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var WHATSAPP_NUMBER = "5585986075663";
+  var WHATSAPP_NUMBER = "5585984075663";
   var DEFAULT_MESSAGE = "Olá, gostaria de um orçamento para limpeza de caixa d'água";
 
   function waLink(message) {
