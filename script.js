@@ -266,19 +266,30 @@
   }
 
   /* ---------------------------------------------------------------------
-     FAQ accordion: native <details>/<summary> already toggles on click;
-     this only adds the "close the others" behavior when one item opens.
+     Hero background slider (arrows, dots, autoplay)
      --------------------------------------------------------------------- */
-  var faqItems = document.querySelectorAll(".faq-item");
-  faqItems.forEach(function (item) {
-    item.addEventListener("toggle", function () {
-      if (item.open) {
-        faqItems.forEach(function (other) {
-          if (other !== item) other.open = false;
-        });
-      }
-    });
-  });
+  var heroSlides = document.querySelectorAll(".hero-slide");
+  var heroDots = document.querySelectorAll(".js-hero-dots span");
+  if (heroSlides.length > 1) {
+    var heroIndex = 0;
+    var heroTimer = null;
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var showHeroSlide = function (i) {
+      heroIndex = (i + heroSlides.length) % heroSlides.length;
+      heroSlides.forEach(function (el, n) { el.classList.toggle("is-active", n === heroIndex); });
+      heroDots.forEach(function (el, n) { el.classList.toggle("is-active", n === heroIndex); });
+    };
+    var restartHero = function () {
+      if (reduceMotion) return;
+      clearInterval(heroTimer);
+      heroTimer = setInterval(function () { showHeroSlide(heroIndex + 1); }, 6000);
+    };
+    var prevBtn = document.querySelector(".js-hero-prev");
+    var nextBtn = document.querySelector(".js-hero-next");
+    if (prevBtn) prevBtn.addEventListener("click", function () { showHeroSlide(heroIndex - 1); restartHero(); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { showHeroSlide(heroIndex + 1); restartHero(); });
+    restartHero();
+  }
 
   /* ---------------------------------------------------------------------
      Footer year

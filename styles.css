@@ -19,7 +19,7 @@
   --sombra-clara: 0 12px 32px rgba(11,37,69, 0.08);
   --sombra-escura: 0 20px 50px rgba(0, 0, 0, 0.28);
 
-  --font-display: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Poppins", "Segoe UI", system-ui, sans-serif;
   --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
 
   --container-max: 1280px;
@@ -776,3 +776,391 @@ input, select { font: inherit; }
   .hero-actions .btn { width: 100%; }
   .hero-visual-caption { padding: 12px 16px; }
 }
+
+/* ==========================================================================
+   Layout no estilo toplimppe.com.br
+   Camada final: sobrescreve a composição das seções acima (títulos grandes
+   sem eyebrow, bordas retas entre seções, cards creme com foto/ícone
+   circular no topo, faixa de números sobre foto, rodapé azul).
+   ========================================================================== */
+:root {
+  --tl-azul-claro: #3F97E4;
+  --tl-royal: #1560D8;
+  --tl-creme: #ECE9E3;
+  --tl-marinho: #0E3D8C;
+  --tl-indigo: #2B3A9C;
+  --tl-painel: #252A36;
+  --tl-cinza: #C7C9CC;
+}
+
+/* Seções com bordas retas, sem ondas nem faixa rolante */
+.wave-divider, .hero-wave, .marquee { display: none; }
+.section { padding: 72px 0; }
+@media (min-width: 1024px) { .section { padding: 96px 0; } }
+
+/* Títulos: grandes, sólidos, sem eyebrow */
+.section .eyebrow { display: none; }
+.section-title { margin-top: 0; font-weight: 700; letter-spacing: -0.01em; line-height: 1.12; font-size: clamp(2rem, 4.2vw, 3.25rem); }
+.section-light .section-title { color: var(--agua-500); }
+.section-dark .section-title { color: #fff; }
+.section-title .text-gradient-water, .section-title .text-turquesa,
+.condo-panel-title .text-gradient-water {
+  background: none; -webkit-text-fill-color: currentColor; color: inherit;
+}
+.section-head, .section-head-single { margin-bottom: 48px; }
+
+/* Botões: pílula azul sólida; secundários retangulares brancos */
+.btn-primary { background: var(--agua-500); box-shadow: none; }
+.btn-primary:hover { background: var(--navy-800); box-shadow: none; }
+.section-dark .btn-primary, .cta-strip .btn-primary { background: var(--tl-indigo); }
+.section-dark .btn-primary:hover, .cta-strip .btn-primary:hover { background: #1F2B7A; }
+.header-cta, .mobile-cta { background: linear-gradient(135deg, var(--whatsapp) 0%, var(--whatsapp-dark) 100%); }
+.section-cta { position: relative; z-index: 1; margin-top: 56px; display: flex; justify-content: center; }
+.section-cta .btn-secondary, .section-cta .btn-outline,
+.section-dark .section-cta .btn-secondary, .section-dark .section-cta .btn-outline {
+  min-height: 40px; padding: 10px 26px; border-radius: 0; border: 1px solid var(--agua-500);
+  background: #fff; color: var(--navy-800); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.08em;
+  backdrop-filter: none;
+}
+.section-cta .btn-secondary:hover, .section-cta .btn-outline:hover { background: var(--branco-agua); color: var(--agua-500); }
+
+/* Header alto, com divisórias entre os links */
+.site-header, .site-header.is-scrolled { background: linear-gradient(90deg, #fff 0%, #F2F7FB 60%, #E2EEF8 100%); backdrop-filter: none; }
+@media (min-width: 1200px) {
+  .header-inner { height: 104px; }
+  .logo-img { height: 60px; }
+  .main-nav { gap: 0; }
+  .main-nav a { padding: 2px 15px; font-size: 0.86rem; font-weight: 500; color: #2A5E9E; }
+  .main-nav a + a { border-left: 1px solid var(--agua-500); }
+  .main-nav a::after { display: none; }
+  .main-nav a:hover { color: var(--agua-500); }
+}
+
+/* Hero: título à direita, faixas marca-texto, um único CTA */
+.hero {
+  min-height: 0;
+  background: linear-gradient(260deg, rgba(11,37,69,0.45) 0%, rgba(13,119,206,0.2) 45%, rgba(13,119,206,0) 100%),
+              url("assets/images/fotos/servico-caixa-dagua.jpg") center/cover no-repeat;
+}
+.hero-inner { padding-top: 136px; padding-bottom: 88px; }
+@media (min-width: 1024px) {
+  .hero-inner { min-height: 720px; padding-top: 168px; padding-bottom: 96px; }
+  .hero-copy { grid-column: 5 / span 8; display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+  .hero-text { margin-left: auto; }
+  .hero-actions { justify-content: flex-end; }
+}
+.hero .badge-pill, .hero-metrics, .hero-trust, .hero .btn-secondary { display: none; }
+.hero-title { max-width: 760px; font-weight: 700; font-size: clamp(1.6rem, 2.8vw, 2.4rem); line-height: 1.12; }
+.hl-box { padding: 2px 10px; border-radius: 0; background: rgba(13,119,206,0.9); }
+.hl-box-solid { background: var(--agua-500); font-size: 1.55em; line-height: 1.18; }
+.hero-text { padding: 14px 18px; background: rgba(11,37,69,0.5); color: #fff; max-width: 34rem; }
+.hero-actions { margin-top: 28px; }
+
+/* Serviços: fundo azul claro, cards creme com foto circular sobreposta */
+#servicos { background: var(--tl-azul-claro); }
+.services-grid { gap: 24px; row-gap: 96px; padding-top: 72px; }
+@media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+.services-grid .service-card-soon {
+  position: relative; overflow: visible; height: 100%; border: 0; border-radius: 28px;
+  background: var(--tl-creme); box-shadow: 0 10px 24px rgba(3,30,60,0.22); text-align: center;
+}
+.section-dark .services-grid .service-card-soon:hover { transform: translateY(-4px); }
+.services-grid .service-card-soon-top {
+  position: absolute; top: -64px; left: 50%; transform: translateX(-50%);
+  width: 136px; height: 136px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 8px 20px rgba(3,30,60,0.25);
+}
+.services-grid .service-card-soon-top::after { display: none; }
+.services-grid .service-card-soon-body { padding: 92px 22px 26px; align-items: center; }
+.services-grid .service-card-soon h3 { font-size: 1.1rem; font-weight: 700; color: var(--agua-500); }
+.services-grid .service-card-soon-body > p { margin-top: 10px; font-size: 0.85rem; }
+.services-grid .icon-badge, .services-grid .pill-outline, .services-grid .feature-list-col { display: none; }
+.services-grid .tag-turquesa { align-self: center; margin-bottom: 10px; background: var(--agua-500); }
+.services-grid .link-arrow { margin-left: auto; margin-right: auto; color: var(--agua-500); }
+
+/* Segmentos: fotos altas arredondadas com legenda embaixo */
+.segment-grid { gap: 28px 16px; grid-template-columns: repeat(2, minmax(0,1fr)); }
+@media (max-width: 639px) { .segment-card-top { border-radius: 22px; } .segment-card h3 { font-size: 1rem; } .segment-card p { font-size: 0.78rem; } }
+.segment-card, .section-dark .segment-card { overflow: visible; border: 0; background: none; box-shadow: none; text-align: center; }
+.segment-card:hover { transform: none; }
+.segment-card-top { height: auto; aspect-ratio: 4 / 5; border-radius: 32px; box-shadow: 0 10px 24px rgba(11,37,69,0.18); transition: transform 0.3s ease; }
+.segment-card:hover .segment-card-top { transform: translateY(-6px); }
+.segment-card-top::after { display: none; }
+.segment-card-body { padding: 16px 6px 0; }
+.segment-card-body .icon-badge { display: none; }
+.segment-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--agua-500); }
+.segment-card p { margin-top: 6px; font-size: 0.85rem; line-height: 1.55; }
+
+/* Corporativo: fundo royal, painel escuro com 4 colunas e barras de destaque */
+#corporativo { background: var(--tl-royal); }
+.corp-grid { grid-template-columns: 1fr; gap: 56px; }
+@media (min-width: 1024px) { .corp-grid { grid-template-columns: 1fr; gap: 64px; } }
+#corporativo .section-lead { max-width: 44rem; color: rgba(255,255,255,0.88); }
+.corp-list { margin-top: 40px; padding: 36px 28px; gap: 28px; background: var(--tl-painel); }
+@media (min-width: 768px) { .corp-list { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 1100px) { .corp-list { grid-template-columns: repeat(4, minmax(0,1fr)); padding: 44px 36px; } }
+.corp-item { position: relative; padding-left: 22px; }
+.corp-item::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 7px; border-radius: 4px; background: #3F62E8; }
+.corp-check { display: none; }
+.corp-item strong { color: #fff; }
+.corp-item span span { color: rgba(255,255,255,0.8); }
+.quote-panel.condo-panel { padding: 24px 28px; border-radius: 28px; background: #fff; color: var(--navy-900); box-shadow: 0 16px 36px rgba(3,30,60,0.25); }
+.condo-panel-inner { max-width: none; text-align: center; }
+.section-dark .condo-panel-title { margin-top: 0; font-size: 1.35rem; color: var(--agua-500); }
+#corporativo .condo-panel-inner .section-lead { color: var(--texto-navy-lead); margin-top: 8px; }
+.condo-panel-inner .btn, .section-dark .condo-panel-inner .btn-primary { margin-top: 20px; background: var(--agua-500); }
+@media (min-width: 1024px) {
+  .quote-panel.condo-panel { padding: 22px 26px 22px 40px; border-radius: 999px; }
+  .condo-panel-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; text-align: left; }
+  #corporativo .condo-panel-inner .section-lead { margin: 0; max-width: none; font-size: 0.92rem; }
+  .condo-panel-inner .btn, .section-dark .condo-panel-inner .btn-primary { margin-top: 0; }
+}
+
+/* Diferenciais: cards creme com ícone circular marinho no topo */
+.diff-grid { gap: 22px; row-gap: 64px; padding-top: 40px; }
+.diff-card, .section-dark .diff-card { overflow: visible; border: 0; border-radius: 28px; background: var(--tl-creme); padding: 60px 24px 30px; text-align: center; box-shadow: 0 10px 24px rgba(3,30,60,0.22); }
+.diff-num { display: none; }
+.diff-card .icon-badge {
+  position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 80px; border-radius: 50%; border: 0; background: var(--tl-marinho); color: #fff;
+}
+.diff-card .icon-badge .icon { width: 36px; height: 36px; }
+.diff-card h3 { margin-top: 0; font-size: 1.1rem; color: var(--agua-500); }
+.diff-card p { color: #2A5E9E; font-weight: 500; }
+
+/* Números: faixa de foto d'água com valores em caixas marca-texto */
+.stats-band .stats-strip { padding-top: 96px; gap: 40px 16px; }
+.stats-band .stats-strip::before {
+  content: ""; position: absolute; z-index: -1; top: 0; left: 50%; width: 100vw; height: 150px; transform: translateX(-50%);
+  background: linear-gradient(0deg, rgba(95,195,238,0.35), rgba(95,195,238,0.35)), url("assets/images/hero-bg.jpg") center 40%/cover no-repeat;
+}
+.stats-band .stat-box { gap: 10px; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
+.stats-band .stat-value { padding: 0 8px; background: #fff; line-height: 1.1; font-size: clamp(2.2rem, 4vw, 3.2rem); color: var(--tl-royal); }
+.stats-band .stat-label {
+  max-width: 14rem; padding: 2px 8px; background: var(--tl-royal); color: #fff;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1.5;
+}
+
+/* Clientes: fundo cinza com selos circulares */
+#clientes { background: var(--tl-cinza); }
+#clientes .section-title { color: var(--agua-500); }
+.client-grid { gap: 24px; justify-items: center; grid-template-columns: repeat(2, minmax(0,1fr)); }
+@media (min-width: 640px) { .client-grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (min-width: 1100px) { .client-grid { grid-template-columns: repeat(6, minmax(0,1fr)); } }
+.client-card, .section-dark .client-card {
+  width: 100%; max-width: 168px; height: auto; aspect-ratio: 1; flex-direction: column; justify-content: center; gap: 10px;
+  padding: 16px; border: 0; border-radius: 50%; background: #fff; box-shadow: 0 6px 16px rgba(0,0,0,0.12); text-align: center;
+}
+.client-card .icon-badge { border: 0; background: none; color: var(--agua-500); }
+.client-card .icon-badge .icon { width: 34px; height: 34px; }
+.client-card span.label { color: var(--navy-800); font-size: 0.95rem; }
+
+/* Sobre: bloco dividido azul + imagem de ponta a ponta */
+#sobre { padding: 0; }
+#sobre .about-grid, #sobre .about-grid-solo { max-width: none; padding: 0; gap: 0; grid-template-columns: 1fr; }
+#sobre .about-copy { padding: 72px 20px; }
+@media (min-width: 640px) { #sobre .about-copy { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 88px 32px; } }
+
+/* Contato: fundo gradiente água, título branco à esquerda, formulário branco reto */
+#contato {
+  background: radial-gradient(ellipse at 45% 115%, rgba(200,245,160,0.95) 0%, rgba(200,245,160,0) 45%),
+              linear-gradient(100deg, #12B2DC 0%, #8FE5F0 42%, #36AED8 72%, #0E6FC0 100%);
+}
+#contato .quote-panel { padding: 0; border-radius: 0; background: none; }
+#contato .section-title { color: #fff; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1; }
+#contato .section-title::after { content: ""; display: block; width: 92px; height: 3px; margin-top: 18px; background: #fff; }
+#contato .section-lead { color: #fff; }
+#contato .quote-form { border: 0; border-radius: 0; padding: 28px; box-shadow: 0 16px 36px rgba(3,30,60,0.18); }
+#contato .form-field label { font-weight: 500; font-size: 0.8rem; }
+#contato .form-field input, #contato .form-field select { border-radius: 0; border: 1px solid #1B6FD0; background: #fff; }
+@media (min-width: 1024px) { #contato .quote-grid { grid-template-columns: 0.8fr 1.2fr; } }
+
+/* Rodapé royal com texto branco */
+.site-footer { background: var(--tl-royal); border-top: 0; }
+.footer-tagline, .footer-links a, .footer-bottom, .photo-credits summary, .photo-credits li { color: rgba(255,255,255,0.85); }
+.footer-heading, .footer-links .icon { color: #fff; }
+.social-btn { border-color: rgba(255,255,255,0.6); color: #fff; }
+.social-btn:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.12); }
+.logo-footer .logo-img { height: 56px; padding: 8px 14px; border-radius: 14px; background: #fff; }
+.footer-bottom { border-top-color: rgba(255,255,255,0.2); }
+
+/* --- Estrutura fiel ao toplimppe.com.br (ordem, faixas e componentes) --- */
+
+/* Header: logo grande, menu com divisórias, faixa d'água à direita, sem botões */
+@media (min-width: 1200px) {
+  .site-header, .site-header.is-scrolled {
+    background: linear-gradient(90deg, #fff 0%, #fff 55%, rgba(255,255,255,0.55) 100%),
+                url("assets/images/hero-bg.jpg") right 30%/cover no-repeat;
+  }
+  .header-inner { height: 124px; }
+  .logo-img { height: 80px; }
+  .header-actions { display: none; }
+  .main-nav a { padding: 2px 14px; }
+}
+
+/* Herói em slides, título à direita, setas e marcadores */
+.hero { background: #0A5FB0; }
+.hero-slides { position: absolute; inset: 0; z-index: 0; }
+.hero-slide { position: absolute; inset: 0; background: center/cover no-repeat; opacity: 0; transition: opacity 1s ease; }
+.hero-slide.is-active { opacity: 1; }
+.hero-slide-1 { background-image: url("assets/images/hero-bg.jpg"); }
+.hero-slide-2 { background-image: url("assets/images/coverage-fortaleza.jpg"); }
+.hero-slide-3 { background-image: url("assets/images/hero-servico.jpg"); background-position: 30% top; }
+.hero-slides::after { content: ""; position: absolute; inset: 0; background: linear-gradient(260deg, rgba(11,37,69,0.35) 0%, rgba(11,37,69,0) 60%); }
+.hero-text { display: none; }
+.hero-title { font-size: clamp(1.45rem, 2.7vw, 2.5rem); line-height: 1.1; }
+.hl-box { padding: 0 10px; background: var(--agua-500); }
+.hl-box-solid { font-size: 1.75em; line-height: 1.08; }
+.hero-actions { margin-top: 40px; }
+.hero-arrow, .hero-dots { display: none; }
+@media (min-width: 1024px) {
+  .hero-inner { min-height: 700px; padding-top: 200px; padding-bottom: 120px; align-items: start; }
+  .hero-actions { margin-top: 120px; margin-right: 64px; }
+  .hero-arrow {
+    position: absolute; top: 50%; z-index: 3; display: flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px; margin-top: -24px; color: #fff; opacity: 0.9;
+  }
+  .hero-arrow .icon { width: 40px; height: 40px; }
+  .hero-arrow:hover { opacity: 1; }
+  .hero-arrow-prev { left: 6%; }
+  .hero-arrow-next { right: 6%; }
+  .hero-dots { position: absolute; left: 50%; bottom: 40px; z-index: 3; display: flex; gap: 14px; transform: translateX(-50%); }
+  .hero-dots span { width: 9px; height: 9px; border-radius: 50%; border: 1px solid #fff; }
+  .hero-dots span.is-active { background: #fff; }
+}
+
+/* Serviços: card de abertura azul + 4 cards só com título */
+@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (min-width: 1200px) { .services-grid { grid-template-columns: repeat(5, minmax(0,1fr)); gap: 18px; } }
+.service-intro {
+  display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 30px 24px; border-radius: 28px;
+  background: var(--agua-500); color: #fff; box-shadow: 0 14px 30px rgba(3,30,60,0.28);
+}
+@media (min-width: 1200px) { .service-intro { margin-top: -24px; } }
+.service-intro-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; line-height: 1.2; }
+.service-intro-title strong { display: block; font-weight: 800; }
+.service-intro-text { font-size: 0.85rem; line-height: 1.55; color: rgba(255,255,255,0.88); }
+.services-grid .service-card-soon { min-height: 230px; }
+.services-grid .service-card-soon-body { justify-content: center; padding: 90px 18px 30px; }
+.services-grid .service-card-soon-body > p, .services-grid .tag-turquesa { display: none; }
+.services-grid .service-card-soon h3 { font-size: 1.05rem; line-height: 1.3; }
+.services-grid .service-card-soon .link-arrow {
+  position: absolute; inset: 0; z-index: 2; margin: 0; padding: 0; border-radius: 28px; font-size: 0; color: transparent;
+}
+.services-grid .service-card-soon .link-arrow svg { display: none; }
+
+/* Segmentos: só foto + nome */
+.segment-card p { display: none; }
+@media (min-width: 900px) { .segment-grid { grid-template-columns: repeat(4, minmax(0,1fr)); max-width: 1000px; margin: 0 auto; } }
+.segment-card-top { border-radius: 36px; }
+.segment-card-body { padding-top: 12px; }
+#segmentos .section-cta { margin-top: 40px; }
+#segmentos { padding-bottom: 56px; }
+
+/* Faixa de foto com pílula branca (vistoria) */
+.corp-band { position: relative; display: flex; align-items: center; min-height: 260px; padding: 40px 0; overflow: hidden; }
+.corp-band-img { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(11,37,69,0.25), rgba(11,37,69,0.25)), url("assets/images/service-droplet.jpg") center 55%/cover no-repeat; }
+.corp-band .container { position: relative; z-index: 1; display: flex; justify-content: center; width: 100%; }
+.corp-band .quote-panel.condo-panel { box-shadow: 0 12px 30px rgba(3,30,60,0.3); }
+.corp-band .quote-panel.condo-panel { display: inline-block; max-width: 100%; padding: 10px 10px 10px 32px; border-radius: 999px; background: #fff; box-shadow: none; }
+.corp-band .condo-panel-inner { display: flex; align-items: center; gap: 28px; text-align: left; }
+.corp-band .condo-panel-inner .eyebrow, .corp-band .condo-panel-inner .section-lead { display: none; }
+.corp-band .condo-panel-title { margin: 0; font-family: var(--font-display); font-size: 0.95rem; font-weight: 500; color: #1d1d1d; }
+.corp-band .condo-panel-inner .btn { min-height: 36px; margin: 0; padding: 8px 22px; font-size: 0.95rem; font-weight: 500; background: var(--agua-500); }
+@media (max-width: 639px) {
+  .corp-band .quote-panel.condo-panel { padding: 16px 20px; border-radius: 24px; }
+  .corp-band .condo-panel-inner { flex-direction: column; gap: 12px; text-align: center; }
+  .corp-band .condo-panel-inner .btn { white-space: normal; }
+}
+
+/* Corporativo: sem texto de apoio, como no modelo */
+#corporativo .section-lead { display: none; }
+#corporativo .corp-list { margin-top: 40px; }
+
+/* Números: só a faixa */
+.stats-band { padding-top: 0; padding-bottom: 48px; }
+.stats-band .stats-strip { padding-top: 110px; }
+.stats-band .stats-strip::before { height: 180px; }
+
+/* Equipe */
+#sobre .about-copy .section-lead { max-width: 52rem; font-size: 1.15rem; color: #fff; }
+.about-cta { margin-top: 32px; }
+
+/* Contato: só título à esquerda, formulário em grade */
+#contato { padding: 40px 0; }
+#contato .section-lead, #contato .contact-list, #contato .contact-social { display: none; }
+#contato .quote-form { display: grid; grid-template-columns: 1fr; column-gap: 20px; padding: 20px 22px 24px; }
+@media (min-width: 640px) { #contato .quote-form { grid-template-columns: 1fr 1fr; } }
+#contato .form-field { grid-column: 1 / -1; margin-bottom: 14px; }
+#contato .form-field:has(#nome) { order: 1; }
+#contato .form-field:has(#servico) { order: 2; }
+#contato .form-field:has(#telefone) { order: 3; grid-column: auto; }
+#contato .form-field:has(#tipo) { order: 4; grid-column: auto; }
+#contato .form-field:has(#endereco) { order: 5; }
+#contato .form-field:has(#capacidade) { order: 6; }
+#contato .quote-form .btn, #contato .form-note { order: 7; grid-column: 1 / -1; }
+#contato .form-field label { margin-bottom: 4px; font-weight: 400; color: #7A8594; }
+#contato .quote-form .btn { border-radius: 0; background: var(--agua-500); }
+
+/* Rodapé: logo branca, sem coluna de navegação */
+@media (min-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+.footer-grid > div:nth-child(2) { display: none; }
+.logo-footer .logo-img { height: 72px; padding: 0; border-radius: 0; background: none; filter: brightness(0) invert(1); }
+
+/* Botões flutuantes com legenda fixa */
+.floating-wa-tip, .floating-ig-tip {
+  position: absolute; right: 100%; top: 50%; margin-right: 10px; transform: translateY(-50%);
+  white-space: nowrap; padding: 3px 10px; border-radius: 999px; border: 1px solid #C9CDD2; background: #ECEDEF;
+  font-size: 11px; font-weight: 500; color: #555; box-shadow: none; opacity: 1; pointer-events: none;
+}
+.floating-wa:hover .floating-wa-tip { transform: translateY(-50%); }
+@media (max-width: 639px) { .floating-wa-tip, .floating-ig-tip { display: none; } }
+
+/* Números: foto ocupando a faixa inteira, valores alinhados dentro dela */
+.stats-band {
+  padding: 64px 0;
+  background: linear-gradient(0deg, rgba(11,37,69,0.18), rgba(11,37,69,0.18)), url("assets/images/hero-bg.jpg") center 45%/cover no-repeat;
+}
+.stats-band .stats-strip { padding-top: 0; align-items: start; }
+.stats-band .stats-strip::before { display: none; }
+.stats-band .stat-box { justify-content: flex-start; }
+.stats-band .stat-value { box-shadow: 0 6px 16px rgba(3,30,60,0.2); }
+
+/* Laudo técnico e Área de atuação ficaram vizinhos: a Área usa o azul royal
+   (mesmo do Corporativo) com um filete claro na divisa */
+#area, .cta-strip-section { background: var(--tl-royal); }
+#area { border-top: 4px solid rgba(255,255,255,0.35); }
+
+/* Tipos de caixa: mesmo padrão dos cards de Serviços (foto real circular sobre card creme) */
+.tank-types-grid { gap: 24px; row-gap: 96px; padding-top: 72px; }
+@media (min-width: 640px) { .tank-types-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 1024px) { .tank-types-grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (min-width: 1200px) { .tank-types-grid { grid-template-columns: repeat(5, minmax(0,1fr)); gap: 18px; } }
+.tank-type-card, .section-dark .tank-type-card {
+  position: relative; overflow: visible; border: 0; border-radius: 28px;
+  background: var(--tl-creme); box-shadow: 0 10px 24px rgba(3,30,60,0.22); text-align: center;
+}
+.tank-type-card:hover { transform: translateY(-4px); }
+.tank-type-card-top {
+  position: absolute; top: -64px; left: 50%; transform: translateX(-50%);
+  width: 136px; height: 136px; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 8px 20px rgba(3,30,60,0.25);
+}
+.tank-type-card-top img { border-radius: 50%; }
+.tank-type-card-body { padding: 90px 20px 28px; }
+.tank-type-card-body .icon-badge { display: none; }
+.tank-type-card h3 { font-size: 1.1rem; color: var(--agua-500); }
+.tank-type-card p { font-size: 0.85rem; }
+
+/* Clientes: fotos reais em círculo com nome embaixo */
+.client-card, .section-dark .client-card {
+  max-width: 180px; aspect-ratio: auto; padding: 0; gap: 12px;
+  border-radius: 0; background: none; box-shadow: none;
+}
+.client-card:hover { transform: none; }
+.client-photo {
+  display: block; width: 100%; aspect-ratio: 1; overflow: hidden; border-radius: 50%;
+  border: 5px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.18); transition: transform 0.3s ease;
+}
+.client-card:hover .client-photo { transform: translateY(-6px); }
+.client-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.client-card span.label { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--agua-500); }
