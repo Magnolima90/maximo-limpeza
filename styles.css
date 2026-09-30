@@ -294,7 +294,7 @@ input, select { font: inherit; }
 .hero {
   position: relative; display: flex; align-items: center; min-height: 100vh; min-height: 100svh; overflow: hidden;
   background: linear-gradient(100deg, rgba(11,37,69,0.6) 0%, rgba(13,119,206,0.4) 45%, rgba(13,119,206,0.15) 100%),
-              url("assets/images/fotos/servico-caixa-dagua.jpg") center/cover no-repeat;
+              url("assets/images/fotos/servico-caixa-dagua.jpg?v=20260930") center/cover no-repeat;
 }
 
 /* Highlighter-style headline: solid color blocks behind each line, like toplimppe.com.br's hero */
@@ -840,7 +840,7 @@ input, select { font: inherit; }
 .hero {
   min-height: 0;
   background: linear-gradient(260deg, rgba(11,37,69,0.45) 0%, rgba(13,119,206,0.2) 45%, rgba(13,119,206,0) 100%),
-              url("assets/images/fotos/servico-caixa-dagua.jpg") center/cover no-repeat;
+              url("assets/images/fotos/servico-caixa-dagua.jpg?v=20260930") center/cover no-repeat;
 }
 .hero-inner { padding-top: 136px; padding-bottom: 88px; }
 @media (min-width: 1024px) {
@@ -932,7 +932,7 @@ input, select { font: inherit; }
 .stats-band .stats-strip { padding-top: 96px; gap: 40px 16px; }
 .stats-band .stats-strip::before {
   content: ""; position: absolute; z-index: -1; top: 0; left: 50%; width: 100vw; height: 150px; transform: translateX(-50%);
-  background: linear-gradient(0deg, rgba(95,195,238,0.35), rgba(95,195,238,0.35)), url("assets/images/hero-bg.jpg") center 40%/cover no-repeat;
+  background: linear-gradient(0deg, rgba(95,195,238,0.35), rgba(95,195,238,0.35)), url("assets/images/hero-bg.jpg?v=20260930") center 40%/cover no-repeat;
 }
 .stats-band .stat-box { gap: 10px; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
 .stats-band .stat-value { padding: 0 8px; background: #fff; line-height: 1.1; font-size: clamp(2.2rem, 4vw, 3.2rem); color: var(--tl-royal); }
@@ -990,7 +990,7 @@ input, select { font: inherit; }
 @media (min-width: 1200px) {
   .site-header, .site-header.is-scrolled {
     background: linear-gradient(90deg, #fff 0%, #fff 55%, rgba(255,255,255,0.55) 100%),
-                url("assets/images/hero-bg.jpg") right 30%/cover no-repeat;
+                url("assets/images/hero-bg.jpg?v=20260930") right 30%/cover no-repeat;
   }
   .header-inner { height: 124px; }
   .logo-img { height: 80px; }
@@ -1003,10 +1003,10 @@ input, select { font: inherit; }
 .hero-slides { position: absolute; inset: 0; z-index: 0; }
 .hero-slide { position: absolute; inset: 0; background: center/cover no-repeat; opacity: 0; transition: opacity 1s ease; }
 .hero-slide.is-active { opacity: 1; }
-.hero-slide-1 { background-image: url("assets/images/hero-bg.jpg"); }
-.hero-slide-2 { background-image: url("assets/images/coverage-fortaleza.jpg"); }
-.hero-slide-3 { background-image: url("assets/images/hero-servico.jpg"); background-position: 30% top; }
-.hero-slide-4 { background-image: url("assets/images/fotos/tecnico-equipe.jpg"); background-position: 65% top; }
+.hero-slide-1 { background-image: url("assets/images/hero-bg.jpg?v=20260930"); }
+.hero-slide-2 { background-image: url("assets/images/coverage-fortaleza.jpg?v=20260930"); }
+.hero-slide-3 { background-image: url("assets/images/hero-servico.jpg?v=20260930"); background-position: 30% top; }
+.hero-slide-4 { background-image: url("assets/images/fotos/tecnico-equipe.jpg?v=20260930"); background-position: 65% top; }
 .hero-slides::after { content: ""; position: absolute; inset: 0; background: linear-gradient(260deg, rgba(11,37,69,0.35) 0%, rgba(11,37,69,0) 60%); }
 .hero-text { display: none; }
 .hero-title { font-size: clamp(1.45rem, 2.7vw, 2.5rem); line-height: 1.1; }
@@ -1060,7 +1060,7 @@ input, select { font: inherit; }
 
 /* Faixa de foto com pílula branca (vistoria) */
 .corp-band { position: relative; display: flex; align-items: center; min-height: 260px; padding: 40px 0; overflow: hidden; }
-.corp-band-img { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(11,37,69,0.25), rgba(11,37,69,0.25)), url("assets/images/service-droplet.jpg") center 55%/cover no-repeat; }
+.corp-band-img { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(11,37,69,0.25), rgba(11,37,69,0.25)), url("assets/images/service-droplet.jpg?v=20260930") center 55%/cover no-repeat; }
 .corp-band .container { position: relative; z-index: 1; display: flex; justify-content: center; width: 100%; }
 .corp-band .quote-panel.condo-panel { box-shadow: 0 12px 30px rgba(3,30,60,0.3); }
 .corp-band .quote-panel.condo-panel { display: inline-block; max-width: 100%; padding: 10px 10px 10px 32px; border-radius: 999px; background: #fff; box-shadow: none; }
@@ -1120,7 +1120,7 @@ input, select { font: inherit; }
 /* Números: foto ocupando a faixa inteira, valores alinhados dentro dela */
 .stats-band {
   padding: 64px 0;
-  background: linear-gradient(0deg, rgba(11,37,69,0.18), rgba(11,37,69,0.18)), url("assets/images/hero-bg.jpg") center 45%/cover no-repeat;
+  background: linear-gradient(0deg, rgba(11,37,69,0.18), rgba(11,37,69,0.18)), url("assets/images/hero-bg.jpg?v=20260930") center 45%/cover no-repeat;
 }
 .stats-band .stats-strip { padding-top: 0; align-items: start; }
 .stats-band .stats-strip::before { display: none; }
