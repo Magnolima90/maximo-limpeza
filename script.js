@@ -42,7 +42,7 @@
     "Compromisso",
     "Qualidade",
     "Total Segurança",
-    "Laudo Técnico Pós-Serviço",
+    "Relatório Fotográfico",
     "Produtos Certificados",
     "Fortaleza e Região Metropolitana"
   ];
