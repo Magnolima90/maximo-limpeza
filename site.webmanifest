@@ -4,8 +4,8 @@
   "description": "Limpeza e higienização de caixa d'água em Fortaleza e Região Metropolitana.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#070E24",
-  "theme_color": "#070E24",
+  "background_color": "#ffffff",
+  "theme_color": "#0B2545",
   "lang": "pt-BR",
   "icons": [
     {
