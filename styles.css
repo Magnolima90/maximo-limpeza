@@ -1006,7 +1006,6 @@ input, select { font: inherit; }
 .hero-slide-1 { background-image: url("assets/images/hero-bg.jpg?v=20260930"); }
 .hero-slide-2 { background-image: url("assets/images/coverage-fortaleza.jpg?v=20260930"); }
 .hero-slide-3 { background-image: url("assets/images/hero-antes-depois.jpg?v=20261002"); background-position: center; }
-.hero-slide-4 { background-image: url("assets/images/fotos/tecnico-equipe.jpg?v=20260930"); background-position: 65% top; }
 .hero-slides::after { content: ""; position: absolute; inset: 0; background: linear-gradient(260deg, rgba(11,37,69,0.35) 0%, rgba(11,37,69,0) 60%); }
 .hero-text { display: none; }
 .hero-title { font-size: clamp(1.45rem, 2.7vw, 2.5rem); line-height: 1.1; }
