@@ -1011,6 +1011,11 @@ input, select { font: inherit; }
 .hero-title { font-size: clamp(1.45rem, 2.7vw, 2.5rem); line-height: 1.1; }
 .hl-box { padding: 0 10px; background: var(--agua-500); }
 .hl-box-solid { font-size: 1.75em; line-height: 1.08; }
+.hero-title .block + .block { margin-top: 6px; }
+@media (min-width: 1024px) {
+  .hero-title { max-width: none; white-space: nowrap; }
+  .hero-title .block:nth-child(3) .hl-box-solid { font-size: 2.1em; }
+}
 .hero-actions { margin-top: 40px; }
 .hero-arrow, .hero-dots { display: none; }
 @media (min-width: 1024px) {
